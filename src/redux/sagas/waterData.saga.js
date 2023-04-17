@@ -2,6 +2,7 @@ import axios from "axios";
 import { put, takeEvery } from "redux-saga/effects";
 
 function* fetchWaterData(action) {
+    console.log('inside fetchWaterData()');
     try{
     const waterData = yield axios.get(`/api/lakes/${action.payload}`)
     console.log('inside waterData saga', waterData.data)
@@ -16,3 +17,6 @@ function* waterDataSaga(){
 }
 
 export default waterDataSaga;
+
+
+

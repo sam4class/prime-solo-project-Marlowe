@@ -1,7 +1,9 @@
 const waterData = (state = [], action) => {
-    if(action.type === 'SET_WATER_DATA') {
-        return action.payload
+    switch (action.type) {
+        case 'SET_WATER_DATA':
+            return action.payload;
+        default:
+            return state;
     }
-    return state;
 }
 export default waterData;
