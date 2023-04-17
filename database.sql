@@ -11,6 +11,8 @@
 --     "password" VARCHAR (1000) NOT NULL
 -- );
 
+--database "lakes_app_data"
+
 CREATE TABLE "lakes" (
   "id" serial primary key,
   "name" varchar(255) not null 

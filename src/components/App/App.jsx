@@ -19,6 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import LakesPage from '../LakesPage/LakesPage';
+import WaterDataPage from '../WaterDataPage/WaterDataPage';
 
 import './App.css';
 
@@ -46,6 +48,22 @@ function App() {
             path="/about"
           >
             <AboutPage />
+          </Route>
+
+          <Route
+            // shows LakesPage at all times (logged in or not)
+            exact
+            path="/lakes"
+          >
+            <LakesPage />
+          </Route>
+
+          <Route
+            // shows LakesPage at all times (logged in or not)
+            exact
+            path="/waterData"
+          >
+            <WaterDataPage />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
