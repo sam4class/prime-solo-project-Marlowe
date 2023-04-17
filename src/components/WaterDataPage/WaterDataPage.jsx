@@ -15,16 +15,17 @@ function WaterDataPage() {
 
     return (<>
         <h1>Water Data:</h1>
-        <button onClick={handleClick}>Back to List</button>
-        <br />
+       
         {waterData.length ?
         <>
-        <p>Water Quality Status: {waterData.water_quality_status}</p>
-        <p>E.Coli Reading: {waterData.e_coli_reading}</p>
-        <p>Temperature: {waterData.temperature}</p>
-        <p>Microcystin Reading: {waterData.microcystin_reading}</p>
+        <p>Water Quality Status: {waterData[0].water_quality_status}</p>
+        <p>E.Coli Reading: {waterData[0].e_coli_reading}</p>
+        <p>Temperature: {waterData[0].temperature}</p>
+        <p>Microcystin Reading: {waterData[0].microcystin_reading}</p>
         </>
         :<p>Waiting for Data</p>}
+
+        <button onClick={handleClick}>Back to List</button>
 
     </>)
 }

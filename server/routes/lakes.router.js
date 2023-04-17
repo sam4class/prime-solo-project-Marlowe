@@ -7,7 +7,6 @@ const {
 
 router.get("/", (req, res) => {
     const sqlText = `SELECT * FROM "lakes"
-    JOIN "water_data" ON lakes.id = water_data.lake_id_wd
     ORDER BY "name" ASC;`;
     pool.query(sqlText)
     .then((result) => {
@@ -19,7 +18,7 @@ router.get("/", (req, res) => {
     })
 });
 
-router.get(':id', (req, res) => {
+router.get('/:id', (req, res) => {
     console.log('in server route', req.params.id)
     const sqlText = `SELECT * FROM "lakes"
     JOIN "water_data" ON lakes.id = water_data.lake_id_wd
