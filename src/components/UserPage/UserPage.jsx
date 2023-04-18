@@ -21,6 +21,14 @@ function UserPage() {
     history.push('/notes')
   }
 
+  function deleteNote(event, id){
+    dispatch({
+      type: 'DELETE_NOTE', 
+      payload: event.target.id
+    })
+
+  }
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
@@ -54,6 +62,7 @@ function UserPage() {
             <li>Lakes: {item.name}</li>
             <li>Date: {item.date}</li>
             <li>Note: {item.note}</li> 
+            {user === item.user_id ? <button id={item.id} onClick={deleteNote}>Delete Note</button> : <></>}
             </ul>
          </> )}):<p></p>}
             </div>

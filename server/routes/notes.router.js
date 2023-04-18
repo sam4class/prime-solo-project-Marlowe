@@ -21,7 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 })
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('req.body in POST reouter', req.body)
+    console.log('req.body in POST', req.body)
     const sqlText = `INSERT INTO "notes" ("user_id", "lake_id_fk", "date", "note")
                     VALUES ($1, $2, $3, $4)`;
     const sqlReq = [req.user.id, req.body.lake_id_fk, req.body.date, req.body.notes]
@@ -31,6 +31,19 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(201);
     }).catch((err) => {
         console.log('error inside POST route', err)
+        res.sendStatus(500);
+    })
+})
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    let sqlText =`DELETE FROM "notes" WHERE notes.id= $1;`;
+    let sqlReq = [req.params.id, req.user.id];
+
+    pool.query(sqlText, sqlReq)
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('eror in DELETE router', err)
         res.sendStatus(500);
     })
 })

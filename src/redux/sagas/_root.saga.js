@@ -6,6 +6,8 @@ import fetchLakes from './fetchLakes.saga';
 import waterDataSaga from './waterData.saga';
 import favoriteLakes from './favoriteLakes.saga';
 import fetchNotes from './getNotes.saga';
+import noteSaga from './note.saga';
+import deleteNote from './delete.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +25,7 @@ export default function* rootSaga() {
     waterDataSaga(),
     favoriteLakes(),
     fetchNotes(),
+    noteSaga(),
+    deleteNote(),
     ]);
 }

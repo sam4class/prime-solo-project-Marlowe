@@ -1,3 +1,6 @@
+import axios from "axios";
+import { takeEvery, put } from "redux-saga/effects";
+
 function* postNote(action){
 try{
     yield axios.post('/api/notes', action.payload);
@@ -10,7 +13,7 @@ try{
 }
 
 function* noteSaga(){
-    yield takeEvery('SET_NEW_NOTE', postNote)
+    yield takeEvery('SET_NEW_NOTE', postNote);
 }
 
 export default noteSaga;

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function NotesForm(){
+    console.log('inside NotesForm() page')
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -11,15 +12,17 @@ function NotesForm(){
     const [addNote, setAddNote] = useState('');
     const [addLake, setAddLake] = useState('');
     const lakeList = useSelector((store) => store.lakeList);
-    console.log('the lakeList', lakeList);
+    // console.log('the lakeList', lakeList);
 
     function addNewNote(event){
+        console.log('inside addNewNote()')
         event.preventDefault();
 
         dispatch({
             type: 'SET_NEW_NOTE',
             payload: {
-                note: addNote,
+                lake_id_fk: addLake,
+                notes: addNote,
                 date: addDate,
             }
         })
