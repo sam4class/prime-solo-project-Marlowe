@@ -18,6 +18,14 @@ function LakesPage(){
         })
     }, []);
 
+    function toSignIn(){
+        history.push('/login')
+    }
+
+    function toRegister() {
+        history.push('/registration')
+    }
+
     return(<>
         <h1>Top Swimming Lakes in Minneapolis:</h1>
         <div>
@@ -36,6 +44,8 @@ function LakesPage(){
                         </ul>
                 )
             })}
+            <button onClick={toRegister}>Register</button>
+            <button onClick={toSignIn}>Sign In</button>
         </div>
     </>)
 }

@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import LakesPage from '../LakesPage/LakesPage';
 import WaterDataPage from '../WaterDataPage/WaterDataPage';
+import NotesForm from '../NotesForm/NotesForm';
 
 import './App.css';
 
@@ -39,7 +40,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/lakes" /> 
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -86,6 +87,14 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/notes"
+          >
+            <NotesForm />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -116,7 +125,7 @@ function App() {
 
           <Route
             exact
-            path="/home"
+            path="/lakes"  //was /home
           >
             {user.id ?
               // If the user is already logged in, 
