@@ -10,7 +10,7 @@ function LakesPage(){
     const history = useHistory();
 
     const lakeList = useSelector((store) => store.lakeList);
-    console.log('this is lakeList', lakeList);
+    // console.log('this is lakeList', lakeList);
 
     useEffect(() => {
         dispatch({

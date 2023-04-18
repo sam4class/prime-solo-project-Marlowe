@@ -13,7 +13,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     pool.query(sqlText)
     .then((result) => {
         res.send(result.rows)
-        console.log('result.rows in GET notes route', result.rows)
+        // console.log('result.rows in GET notes route', result.rows)
     }).catch((err) => {
         console.log('in GET notes router', err)
         res.sendStatus(500);
@@ -21,6 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 })
 
 router.post('/', rejectUnauthenticated, (req, res) => {
+    console.log('req.body in POST reouter', req.body)
     const sqlText = `INSERT INTO "notes" ("user_id", "lake_id_fk", "date", "note")
                     VALUES ($1, $2, $3, $4)`;
     const sqlReq = [req.user.id, req.body.lake_id_fk, req.body.date, req.body.notes]

@@ -2,7 +2,8 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import NotesForm from '../NotesForm/NotesForm';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function UserPage() {
 
@@ -10,9 +11,10 @@ function UserPage() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
   const lakeList = useSelector((store) => store.lakeList);
-
+  const  userNotes = useSelector((store) => store.userNotes);
+ 
   useEffect(() => {
-    dispatch({type: 'FETCH_NOTE'})
+    dispatch({type: 'FETCH_NOTES'})
   }, []);
 
   function toNotesPage(){
@@ -38,16 +40,28 @@ function UserPage() {
                         
                 )
             }) : <>
-            <p>show the three lakes up top</p>
+            <p>sign in timed out</p>
             </>} 
             <button onClick={toNotesPage}>Make a Note</button>
             {/* <NotesForm /> */}
       <LogOutButton className="btn" />
       <hr/>
-      <h2>Your Notes</h2>
-
-    </div>
+            <div>
+       {userNotes ?
+          userNotes.map((item) => {
+            return(<>
+            <ul key={item.id}>
+            <li>Lakes: {item.name}</li>
+            <li>Date: {item.date}</li>
+            <li>Note: {item.note}</li> 
+            </ul>
+         </> )}):<p></p>}
+            </div>
+      <br/>
+      </div>
   );
+  
+
 }
 
 // this allows us to use <App /> in index.js

@@ -19,9 +19,8 @@ function NotesForm(){
         dispatch({
             type: 'SET_NEW_NOTE',
             payload: {
-                name: addLake, //might need to be lake_id?
                 note: addNote,
-                date: addDate
+                date: addDate,
             }
         })
         setAddDate('');
@@ -43,7 +42,7 @@ function NotesForm(){
                 <option label='Which Lake Are You At?' value="empty"></option>
                 {lakeList.map((item) => {
                     return(
-                    <option label={item.name} value={item.id}></option>
+                    <option key={item.id} label={item.name} value={item.id}></option>
                     )
                 })}
             </select>

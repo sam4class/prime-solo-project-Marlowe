@@ -1,6 +1,6 @@
 function* postNote(action){
 try{
-    yield axios.post('api/notes', action.payload);
+    yield axios.post('/api/notes', action.payload);
     console.log('action.payload in postNote', action.payload)
     yield put({type: 'FETCH_NOTES'})
 
