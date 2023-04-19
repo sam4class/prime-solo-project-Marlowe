@@ -12,21 +12,15 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const lakeList = useSelector((store) => store.lakeList);
   const  userNotes = useSelector((store) => store.userNotes);
+  const favsArray = [];
  
   useEffect(() => {
     dispatch({type: 'FETCH_NOTES'})
+    // dispatch({ type: 'FETCH_FAV_SPACES'})
   }, []);
 
   function toNotesPage(){
     history.push('/notes')
-  }
-
-  function deleteNote(event, id){
-    dispatch({
-      type: 'DELETE_NOTE', 
-      payload: event.target.id
-    })
-
   }
 
   return (
@@ -34,7 +28,9 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       {/* <p>Your ID is: {user.id}</p> */}
       <h3>Pick Three Lakes to Watch:</h3>
+      
       {lakeList.length ?
+        
             lakeList.map((item) => {
                 return (
                     <ul key={item.id}> 
@@ -42,14 +38,14 @@ function UserPage() {
                         
                         <button onClick={() => {
                           console.log('clicking for fav!')
-                          dispatch({type: 'FAV_LAKES', payload: item.id,}); //do i make state to hold them?
+                          dispatch({type: 'FAV_LAKES', payload: item.id,});
                         }}>Fav Lake</button>
-                    </ul>
-                        
-                )
-            }) : <>
-            <p>sign in timed out</p>
+                    </ul>)
+            }): <>
+            <p>Your Lakes</p>
             </>} 
+
+
             <button onClick={toNotesPage}>Make a Note</button>
             {/* <NotesForm /> */}
       <LogOutButton className="btn" />
@@ -62,7 +58,12 @@ function UserPage() {
             <li>Lakes: {item.name}</li>
             <li>Date: {item.date}</li>
             <li>Note: {item.note}</li> 
-            {user === item.user_id ? <button id={item.id} onClick={deleteNote}>Delete Note</button> : <></>}
+            <button id={item.id} onClick={() => {
+              dispatch({
+                type: 'DELETE_NOTE',
+                payload: item.id
+              })
+            }}>Delete Note</button>
             </ul>
          </> )}):<p></p>}
             </div>

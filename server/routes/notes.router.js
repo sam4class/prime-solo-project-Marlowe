@@ -6,7 +6,8 @@ const {
 } = require("../modules/authentication-middleware");
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const sqlText = `SELECT * FROM notes
+    const sqlText = `SELECT notes.id, notes.lake_id_fk, notes.user_id, notes.note, notes.date  
+    FROM notes
     JOIN lakes ON notes.lake_id_fk = lakes.id
     JOIN "user" ON notes.user_id = "user".id
     ORDER BY date DESC;`;
@@ -36,8 +37,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 })
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('inside DELETE', req.params)
     let sqlText =`DELETE FROM "notes" WHERE notes.id= $1;`;
-    let sqlReq = [req.params.id, req.user.id];
+    let sqlReq = [req.params.id];
 
     pool.query(sqlText, sqlReq)
     .then(() => {
