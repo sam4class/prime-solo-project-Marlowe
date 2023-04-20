@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function LakesPage(){
-    console.log('inside LakesPage()');
+    // console.log('inside LakesPage()');
     const dispatch = useDispatch();
     const history = useHistory();
 
     const lakeList = useSelector((store) => store.lakeList);
-    // console.log('this is lakeList', lakeList);
+    console.log('this is lakeList', lakeList);
 
     useEffect(() => {
         dispatch({
@@ -33,14 +33,34 @@ function LakesPage(){
             lakeList.map((item) => {
                 return (
                     <ul key={item.id}>
-                        <li onClick={() => {
+                        {item.water_quality_status === 'GOOD' ? 
+                        <li className='green' onClick={() => {
                             console.log('clicking')
                             dispatch({
                                 type: 'WATER_DATA',
                                 payload: item.id
                             });
                             history.push('/waterData')
-                        }}>{item.name}</li>
+                        }}>{item.name}</li>:
+                        item.water_quality_status === 'FAIR' ?
+                        <li className='yellow' onClick={() => {
+                            console.log('clicking')
+                            dispatch({
+                                type: 'WATER_DATA',
+                                payload: item.id
+                            });
+                            history.push('/waterData')
+                        }}>{item.name}</li>:
+                        item.water_quality_status === 'BAD' ?
+                        <li className='red' onClick={() => {
+                            console.log('clicking')
+                            dispatch({
+                                type: 'WATER_DATA',
+                                payload: item.id
+                            });
+                            history.push('/waterData')
+                        }}>{item.name}</li>: <></>
+                        }
                         </ul>
                 )
             })}

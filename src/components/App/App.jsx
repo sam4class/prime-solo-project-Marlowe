@@ -22,6 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import LakesPage from '../LakesPage/LakesPage';
 import WaterDataPage from '../WaterDataPage/WaterDataPage';
 import NotesForm from '../NotesForm/NotesForm';
+import UserFavoritePage from '../UserFavoritePage/UserFaoritePage';
+// import NotePage from './NotePage/NotePage';
 
 import './App.css';
 
@@ -93,6 +95,22 @@ function App() {
             path="/notes"
           >
             <NotesForm />
+          </ProtectedRoute>
+{/* 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/notesPage"
+          >
+            <NotePage />
+          </ProtectedRoute> */}
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/favorite"
+          >
+            <UserFavoritePage />
           </ProtectedRoute>
 
           <Route

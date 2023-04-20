@@ -47,4 +47,19 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+//a put for onboarded true
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('inside PUT route', req.params.id)
+  const sqlText =`UPDATE "user"
+  SET "onboarded" = true
+  WHERE "id" = ${req.params.id}`;
+
+  pool.query(sqlText)
+  .then((result) => {
+      res.sendStatus(200)
+  }).catch((error) => {
+      res.sendStatus(500)
+  })
+})
+
 module.exports = router;

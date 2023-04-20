@@ -13,6 +13,7 @@ function WaterDataPage() {
         history.push('/lakes')
     }
 
+
     return (<>
         <h1>Water Data:</h1>
        

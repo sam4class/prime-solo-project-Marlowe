@@ -4,7 +4,7 @@ import { put, takeEvery } from "redux-saga/effects";
 function* fetchLakeList(){
     try{
         const lakeList = yield axios.get('api/lakes');
-        console.log('incoming lakes', lakeList.data);
+        // console.log('incoming lakes', lakeList.data);
         yield put({ type: 'SET_LAKES', payload: lakeList.data})
     } catch(err){
         console.log('error in GET saga', err)

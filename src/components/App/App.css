@@ -110,3 +110,15 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.green{
+  color: green;
+}
+
+.yellow{
+  color:rgb(200, 200, 27);
+}
+
+.red{
+  color: red;
+}

@@ -4,7 +4,7 @@ import { takeEvery, put } from "redux-saga/effects";
 function* postNote(action){
 try{
     yield axios.post('/api/notes', action.payload);
-    console.log('action.payload in postNote', action.payload)
+    // console.log('action.payload in postNote', action.payload)
     yield put({type: 'FETCH_NOTES'})
 
 }catch(err){

@@ -8,6 +8,8 @@ import favoriteLakes from './favoriteLakes.saga';
 import fetchNotes from './getNotes.saga';
 import noteSaga from './note.saga';
 import deleteNote from './delete.saga';
+import fetchFavLakes from './getFavLakes.saga';
+import putOnboarded from './putOnboarded.saga';
 
 
 // rootSaga is the primary saga.
@@ -28,6 +30,7 @@ export default function* rootSaga() {
     fetchNotes(),
     noteSaga(),
     deleteNote(),
-    
+    fetchFavLakes(),
+    putOnboarded(),
     ]);
 }
