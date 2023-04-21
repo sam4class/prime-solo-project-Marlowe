@@ -15,13 +15,13 @@ function NotesForm(){
     // console.log('the lakeList', lakeList);
 
     function addNewNote(event){
-        console.log('inside addNewNote()')
+        // console.log('inside addNewNote()')
         event.preventDefault();
 
         dispatch({
             type: 'SET_NEW_NOTE',
             payload: {
-                lake_id_fk: Number(addLake),
+                lake_id_fk: addLake,
                 notes: addNote,
                 date: addDate,
             }

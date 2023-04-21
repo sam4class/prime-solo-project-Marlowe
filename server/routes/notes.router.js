@@ -6,7 +6,7 @@ const {
 } = require("../modules/authentication-middleware");
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const sqlText = `SELECT notes.id, notes.lake_id_fk, notes.user_id, notes.note, notes.date  
+    const sqlText = `SELECT notes.id, notes.lake_id_fk, notes.user_id, notes.note, notes.date, lakes."name"  
     FROM notes
     JOIN lakes ON notes.lake_id_fk = lakes.id
     JOIN "user" ON notes.user_id = "user".id
