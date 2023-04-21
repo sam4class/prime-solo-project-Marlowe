@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-// import NotePage from "../NotePage/NotePage";
+import NotePage from "../NotePage/NotePage";
 
 
 function UserFavoritePage(){
@@ -12,12 +12,12 @@ function UserFavoritePage(){
     const history = useHistory();
     const favLakeList = useSelector((store) => store.favLakeList);
     const  userNotes = useSelector((store) => store.userNotes);
-    const lakeList = useSelector((store) => store.lakeList)
-    const user = useSelector((store) => store.user);
+    // const lakeList = useSelector((store) => store.lakeList)
+    // const user = useSelector((store) => store.user);
 
     useEffect(() => {
         dispatch({type: 'FETCH_FAVORITES'})
-        dispatch({type: 'FETCH_NOTES'})
+        // dispatch({type: 'FETCH_NOTES'})
     }, []);
 
     function toNotesPage(){
@@ -63,9 +63,9 @@ function UserFavoritePage(){
         })}
      <button onClick={toNotesPage}>Make a Note</button>
     <hr/>
-    <div>
-        {/* <NotePage /> */}
-       <h1>Lake Notes</h1>
+    {/* <div> */}
+        <NotePage />
+       {/* <h1>Lake Notes</h1>
        {userNotes ?
           userNotes.map((item) => {
             return(<>
@@ -81,8 +81,9 @@ function UserFavoritePage(){
             }}>Delete Note</button>
             </ul>
          </> )}):<p></p>}
-     </div>
+     </div> */}
 
-    </>)
+    </>
+    )
 }
 export default UserFavoritePage;
