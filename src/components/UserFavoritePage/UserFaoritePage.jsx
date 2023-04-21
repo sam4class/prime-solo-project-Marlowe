@@ -12,21 +12,26 @@ function UserFavoritePage(){
     const history = useHistory();
     const favLakeList = useSelector((store) => store.favLakeList);
     const  userNotes = useSelector((store) => store.userNotes);
+    const lakeList = useSelector((store) => store.lakeList)
     const user = useSelector((store) => store.user);
 
     useEffect(() => {
         dispatch({type: 'FETCH_FAVORITES'})
         dispatch({type: 'FETCH_NOTES'})
     }, []);
+
+    function toNotesPage(){
+        history.push('/notes')
+      }
     
 
     return(<>
         <h1>Your Lakes</h1>
        {favLakeList.map((item) => {
-            return(
+            return(<>
                 <ul key={item.id}>
+                    
                       <li onClick={() => {
-                            console.log('clicking')
                             dispatch({
                                 type: 'WATER_DATA',
                                 payload: item.id
@@ -34,17 +39,18 @@ function UserFavoritePage(){
                             history.push('/waterData')
                         }}>{item.name}</li>
                 </ul>
-            )
+            </>)
         })}
-
+     <button onClick={toNotesPage}>Make a Note</button>
     <hr/>
     <div>
         {/* <NotePage /> */}
+       
        {userNotes ?
           userNotes.map((item) => {
             return(<>
             <ul key={item.id}>
-            <li>Lakes: {item.name}</li>
+            <p>Lakes: {item.name}</p>
             <li>Date: {item.date}</li>
             <li>Note: {item.note}</li> 
             <button id={item.id} onClick={() => {

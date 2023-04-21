@@ -16,9 +16,9 @@ function UserPage() {
   const  userNotes = useSelector((store) => store.userNotes);
 
 
-  function toNotesPage(){
-    history.push('/notes')
-  }
+  // function toNotesPage(){
+  //   history.push('/notes')
+  // }
 
   function handleOnboarded(){
     dispatch({
@@ -33,7 +33,10 @@ function UserPage() {
     
     if(user.onboarded === true){
       history.push('/favorite')
-    }else if(user.onboarded === false){
+    }
+  }, [user])
+
+  
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
@@ -48,8 +51,12 @@ function UserPage() {
                         <li>{item.name}</li>
                         
                         <button onClick={() => {
-                          // console.log('clicking for fav!')
-                          dispatch({type: 'FAV_LAKES', payload: item.id,});
+                          console.log('clicking for fav!', item.id)
+                          dispatch({
+                            type: 'FAV_LAKES', 
+                            payload: {
+                              lakes_id: item.id,
+                            }});
                         }}>Fav Lake</button>
                     </ul>)
                     
@@ -57,13 +64,12 @@ function UserPage() {
             <button onClick={handleOnboarded}>Submit Favorites</button>
             
             </> :<></>}
-            <button onClick={toNotesPage}>Make a Note</button>
+            
            
       <LogOutButton className="btn" />
 
       </div>
-  );    }
-}, [user])
+  );
   
 
 }

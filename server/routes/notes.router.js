@@ -11,6 +11,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     JOIN lakes ON notes.lake_id_fk = lakes.id
     JOIN "user" ON notes.user_id = "user".id
     ORDER BY date DESC;`;
+
     pool.query(sqlText)
     .then((result) => {
         res.send(result.rows)
@@ -22,7 +23,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 })
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-    // console.log('req.body in POST', req.body)
+    console.log('req.body in POST', req.body)
+
     const sqlText = `INSERT INTO "notes" ("user_id", "lake_id_fk", "date", "note")
                     VALUES ($1, $2, $3, $4)`;
     const sqlReq = [req.user.id, req.body.lake_id_fk, req.body.date, req.body.notes]

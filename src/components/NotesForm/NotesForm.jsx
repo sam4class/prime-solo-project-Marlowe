@@ -21,11 +21,12 @@ function NotesForm(){
         dispatch({
             type: 'SET_NEW_NOTE',
             payload: {
-                lake_id_fk: addLake,
+                lake_id_fk: Number(addLake),
                 notes: addNote,
                 date: addDate,
             }
         })
+        console.log('addLake in noteForm', Number(addLake))
         setAddDate('');
         setAddNote('');
         setAddLake('');

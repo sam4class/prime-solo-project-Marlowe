@@ -35,28 +35,14 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// router.get('/favorite', (req, res) => {
-//     console.log('in server route')
-//     sqlText = `SELECT * FROM lakes
-//     WHERE "is_favorite" = true`
+router.post('/', rejectUnauthenticated, (req, res) => {
+    // console.log('inside POST route', req.user.id, req.body.lakes_id)
+    const sqlText =`INSERT INTO "fav_lakes" ("user_id" , "lakes_id")
+    VALUES ($1, $2);`;
 
-//     pool.query(sqlText)
-//     .then((result) => {
-//         res.send(result.rows)
-//     }).catch((err) => {
-//         console.log('error in fav route server', err)
-//         res.sendStatus(500);
-//     })
-// })
-
-router.put('/:id', rejectUnauthenticated, (req, res) => {
-    // console.log('inside PUT route', req.params.id)
-    const sqlText =`UPDATE "lakes"
-    SET "is_favorite" = true
-    WHERE "id" = ${req.params.id}`;
-
-    pool.query(sqlText)
+    pool.query(sqlText, [req.user.id, req.body.lakes_id])
     .then((result) => {
+        // console.log('inside POST lakes router', req.user.id, req.body.lakes_id)
         res.sendStatus(200)
     }).catch((error) => {
         res.sendStatus(500)

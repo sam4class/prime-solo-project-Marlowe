@@ -6,9 +6,12 @@ const {
 } = require("../modules/authentication-middleware");
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    // console.log('in server route')
-    sqlText = `SELECT * FROM lakes
-    WHERE "is_favorite" = true`
+   
+    sqlText = `SELECT * FROM "fav_lakes"
+    JOIN "lakes" ON fav_lakes.lakes_id = lakes.id
+    JOIN "user" on "user".id = fav_lakes.user_id
+    JOIN "water_data" ON water_data.lake_id_wd = lakes.id
+    WHERE "onboarded" = true`
 
     pool.query(sqlText)
     .then((result) => {
