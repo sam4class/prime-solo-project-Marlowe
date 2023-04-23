@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Typography, Button, Box } from "@mui/material";
 
+
 function LakesPage() {
     // console.log('inside LakesPage()');
     const dispatch = useDispatch();
@@ -36,17 +37,19 @@ function LakesPage() {
                 align="center"
             className="header"
             >
-                Top Swimming in Minneapolis
+                Top Swimming Beaches in Mpls
             </Typography>
         </center>
-        <Typography
+        {/* <Typography
             variant="body2"
             className="key"
         >
-            Blue means 'Swim!'<br />
-            Green Alge means caution . . .<br />
-            Orange means 'Don't Do It!'
-        </Typography>
+            Blue means 'Swim!' <i className="fa-solid fa-person-swimming"></i>
+            <br />
+            Green Alge means caution . . .<i className='fas fa-exclamation-triangle'></i> 
+            <br />
+            Orange means 'Don't Do It!' <i className='fas fa-ban'></i>
+        </Typography> */}
 
         <center>
             <Typography
@@ -65,41 +68,42 @@ function LakesPage() {
                         // align="center"
                         // >
                         // <center>
-                            <ul key={item.id}>
-                                {item.water_quality_status === 'GOOD' ?
-                                    <li id='blueGood' className="listBox" onClick={() => {
+                            <p key={item.id}>
+                                {item.water_quality_status === 'GOOD' ?<>
+                                    <p id='blueGood' className="listBox" onClick={() => {
                                         console.log('clicking')
                                         dispatch({
                                             type: 'WATER_DATA',
                                             payload: item.id
                                         });
                                         history.push('/waterData')
-                                    }}>{item.name}</li> :
+                                    }}> <i className="fa-solid fa-person-swimming"></i> {item.name}</p> </>:
                                     item.water_quality_status === 'FAIR' ?
-                                        <li id='greenFair' className="listBox" onClick={() => {
+                                        <p id='greenFair' className="listBox" onClick={() => {
                                             console.log('clicking')
                                             dispatch({
                                                 type: 'WATER_DATA',
                                                 payload: item.id
                                             });
                                             history.push('/waterData')
-                                        }}>{item.name}</li> :
+                                        }}><i className='fas fa-exclamation-triangle'></i> {item.name}</p> :
                                         item.water_quality_status === 'BAD' ?
-                                            <li id='redBad' className="listBox" onClick={() => {
+                                            <p id='redBad' className="listBox" onClick={() => {
                                                 console.log('clicking')
                                                 dispatch({
                                                     type: 'WATER_DATA',
                                                     payload: item.id
                                                 });
                                                 history.push('/waterData')
-                                            }}>{item.name}</li> : <></>
+                                            }}><i className='fas fa-ban'></i> {item.name}</p> : <></>
                                 }
-                            </ul>
-                        // </center>
-                        // </Typography>
+                            </p>
+                        // {/* </center>
+                        //  </Typography> */}
                     )
 
                 })}
+
             <Box
                 m={1}
                 display="flex"

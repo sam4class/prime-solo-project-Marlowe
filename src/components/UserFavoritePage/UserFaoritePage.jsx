@@ -34,36 +34,36 @@ function UserFavoritePage() {
 
         {favLakeList.map((item) => {
             return (<>
-                <ul key={item.id}>
+                <p key={item.id}>
                     {item.water_quality_status === 'GOOD' ?
-                        <li id='blueGood' className='listBox' onClick={() => {
+                        <p id='blueGood' className='listBox' onClick={() => {
                             console.log('clicking')
                             dispatch({
                                 type: 'WATER_DATA',
                                 payload: item.id
                             });
                             history.push('/waterData')
-                        }}>{item.name}</li> :
+                        }}>{item.name}</p> :
                         item.water_quality_status === 'FAIR' ?
-                            <li id='greenFair' className='listBox' onClick={() => {
+                            <p id='greenFair' className='listBox' onClick={() => {
                                 console.log('clicking')
                                 dispatch({
                                     type: 'WATER_DATA',
                                     payload: item.id
                                 });
                                 history.push('/waterData')
-                            }}>{item.name}</li> :
+                            }}>{item.name}</p> :
                             item.water_quality_status === 'BAD' ?
-                                <li id='redBad' className='listBox' onClick={() => {
+                                <p id='redBad' className='listBox' onClick={() => {
                                     console.log('clicking')
                                     dispatch({
                                         type: 'WATER_DATA',
                                         payload: item.id
                                     });
                                     history.push('/waterData')
-                                }}>{item.name}</li> : <></>
+                                }}>{item.name}</p> : <></>
                     }
-                </ul>
+                </p>
             </>)
         })}
         <Box

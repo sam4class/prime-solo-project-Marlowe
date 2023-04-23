@@ -63,7 +63,7 @@ function NotesForm() {
             </FormControl>
             {/* <FormControl fullWidth variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
             <InputLabel id="menu" >Lake</InputLabel>
-            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)}>
+            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)}> */}
                 {/* <option label='Which Lake Are You At?' value="empty"></option> */}
                         {/* <MenuItem value={lakeList.id}>Bde Maka Ska- 32nd Street Beach</MenuItem>
                         <MenuItem value={lakeList.id}>Bde Maka Ska- North Beach</MenuItem>
@@ -76,10 +76,10 @@ function NotesForm() {
                         <MenuItem value={lakeList.id}>Lake Hiawatha Beach</MenuItem>
                         <MenuItem value={lakeList.id}>Lake Nokomis- 50th Street Beach</MenuItem>
                         <MenuItem value={lakeList.id}>Lake Nokomis- Main Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Theodore Wirth Park Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Theodore Wirth Beach</MenuItem>
          
             </Select>
-            </FormControl> */} 
+            </FormControl> */}
 
             <br/>
             <TextField

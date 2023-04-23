@@ -34,19 +34,18 @@ function UserPage() {
   
   return (
     <div className="container">
-                  <Typography variant="h4"
+                  <Typography variant="h6"
                 mt={4}
                 mb={2}
                 color="primary"
                 align="center"
-            className="header"
             >
               Welcome, {user.username}!
             </Typography>
      
       {/* <p>Your ID is: {user.id}</p> */}
       <center>
-      <Typography variant="h4"
+      <Typography variant="h5"
                 mt={4}
                 mb={2}
                 color="primary"
@@ -61,11 +60,17 @@ function UserPage() {
       <>
             {lakeList.map((item) => {
                 return (
-                    <ul key={item.id}> 
-                        <li className="listBox">{item.name}</li>
+                    <p key={item.id}> 
+                        <p className="listBox">{item.name}</p>
                         
+                        <Box
+            m={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end">
                         <Button 
-                        variant='primary'
+                        variant='contained'
+                        size="small"
                         onClick={() => {
                           // console.log('clicking for fav!', item.id)
                           dispatch({
@@ -74,16 +79,30 @@ function UserPage() {
                               lakes_id: item.id,
                             }});
                         }}>Fav Lake</Button>
-                    </ul>)
+                        </Box>
+                    </p>)
                     
             })} 
-            <button onClick={handleOnboarded}>Submit Favorites</button>
+            <Box
+            m={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end"
+            className="submitBtn">
+            <Button
+            variant='contained' 
+            onClick={handleOnboarded}>Submit Favorites</Button>
+            </Box>
+            </> :<p>List Timed Out</p>}
             
-            </> :<></>}
-            
-           
-      <LogOutButton className="btn" />
-
+           <br/>
+           <Box
+            m={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end">
+            <LogOutButton className="btn" />
+            </Box>
       </div>
   );
   

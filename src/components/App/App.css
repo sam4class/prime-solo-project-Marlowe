@@ -29,10 +29,10 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
+  border-color: #010a41;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #000cb0;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -55,7 +55,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #000cb0;
   text-decoration: none;
 }
 
@@ -111,8 +111,6 @@ Form Treatment
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  
-  
 } */
 
 input {
@@ -131,17 +129,16 @@ border-radius: 15px;
 padding: 20px; */
 }
 
-
 #blueGood, .textBlue{
   color: blue;
 }
 
 #greenFair, .textGreen{
-  color:rgb(8, 133, 29);
+  color: rgb(16, 74, 16);
 }
 
 #redBad, .textRed{
-  color: orange;
+  color: brown;
 }
 
 .key{
@@ -154,12 +151,11 @@ margin-left: .5em;
 }
 
 .listBox{
-background-color: rgb(225, 234, 242);
+background-color: rgb(235, 241, 247);
 width: 90%;
 border: 1px rgb(3, 3, 3);
 border-radius: 15px;
 box-shadow: 5px 5px 8px rgb(17, 3, 138);
-/* box-shadow: 3px 3px rgb(71, 8, 158), -1em 0 .4em rgb(13, 13, 139); */
 padding: 10px;
 }
 
@@ -167,16 +163,12 @@ padding: 10px;
   background-color: rgb(182, 217, 244);
 }
 
-ul{
-  list-style-type: none;
-}
-
 .regBtn{
   margin-top: 70%;
 }
 
 .noteBox{
-font-family:monospace;
+font-family: monospace;
 width: 90%;
 border-radius: 15px;
 box-shadow: 5px 5px 8px rgb(17, 3, 138);
