@@ -3,86 +3,81 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import NotePage from "../NotePage/NotePage";
+import { Button, Box, Typography } from "@mui/material";
 
 
-function UserFavoritePage(){
+function UserFavoritePage() {
     // console.log('inside UserFavPage()')
 
     const dispatch = useDispatch();
     const history = useHistory();
     const favLakeList = useSelector((store) => store.favLakeList);
-    const  userNotes = useSelector((store) => store.userNotes);
-    // const lakeList = useSelector((store) => store.lakeList)
-    // const user = useSelector((store) => store.user);
+    // const  userNotes = useSelector((store) => store.userNotes);
+
 
     useEffect(() => {
-        dispatch({type: 'FETCH_FAVORITES'})
-        // dispatch({type: 'FETCH_NOTES'})
+        dispatch({ type: 'FETCH_FAVORITES' })
     }, []);
 
-    function toNotesPage(){
+    function toNotesPage() {
         history.push('/notes')
-      }
-    
+    }
 
-    return(<>
-        <h1>Your Lakes</h1>
-       {favLakeList.map((item) => {
-            return(<>
-                  <ul key={item.id}>
-                        {item.water_quality_status === 'GOOD' ? 
-                        <li className='green' onClick={() => {
+
+    return (<>
+        <Typography
+            m={3}
+            variant="h5"
+            color='primary'>
+            Your Lakes:
+        </Typography>
+
+        {favLakeList.map((item) => {
+            return (<>
+                <ul key={item.id}>
+                    {item.water_quality_status === 'GOOD' ?
+                        <li id='blueGood' className='listBox' onClick={() => {
                             console.log('clicking')
                             dispatch({
                                 type: 'WATER_DATA',
                                 payload: item.id
                             });
                             history.push('/waterData')
-                        }}>{item.name}</li>:
+                        }}>{item.name}</li> :
                         item.water_quality_status === 'FAIR' ?
-                        <li className='yellow' onClick={() => {
-                            console.log('clicking')
-                            dispatch({
-                                type: 'WATER_DATA',
-                                payload: item.id
-                            });
-                            history.push('/waterData')
-                        }}>{item.name}</li>:
-                        item.water_quality_status === 'BAD' ?
-                        <li className='red' onClick={() => {
-                            console.log('clicking')
-                            dispatch({
-                                type: 'WATER_DATA',
-                                payload: item.id
-                            });
-                            history.push('/waterData')
-                        }}>{item.name}</li>: <></>
-                        }
-                        </ul>
+                            <li id='greenFair' className='listBox' onClick={() => {
+                                console.log('clicking')
+                                dispatch({
+                                    type: 'WATER_DATA',
+                                    payload: item.id
+                                });
+                                history.push('/waterData')
+                            }}>{item.name}</li> :
+                            item.water_quality_status === 'BAD' ?
+                                <li id='redBad' className='listBox' onClick={() => {
+                                    console.log('clicking')
+                                    dispatch({
+                                        type: 'WATER_DATA',
+                                        payload: item.id
+                                    });
+                                    history.push('/waterData')
+                                }}>{item.name}</li> : <></>
+                    }
+                </ul>
             </>)
         })}
-     <button onClick={toNotesPage}>Make a Note</button>
-    <hr/>
-    {/* <div> */}
+        <Box
+            m={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end">
+            <Button
+                variant="contained"
+                size='small'
+                onClick={toNotesPage}>Make a Note</Button>
+        </Box>
+        <hr />
         <NotePage />
-       {/* <h1>Lake Notes</h1>
-       {userNotes ?
-          userNotes.map((item) => {
-            return(<>
-            <ul key={item.id}>
-            <p>Lakes: {item.name}</p>
-            <p>Date: {item.date}</p>
-            <p>Note: {item.note}</p> 
-            <button id={item.id} onClick={() => {
-              dispatch({
-                type: 'DELETE_NOTE',
-                payload: item.id
-              })
-            }}>Delete Note</button>
-            </ul>
-         </> )}):<p></p>}
-     </div> */}
-
     </>
     )
 }

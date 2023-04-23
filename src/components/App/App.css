@@ -106,19 +106,79 @@ Form Treatment
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
+/* body{
+  background-image: url('/public/images/rippleLake.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  
+  
+} */
+
 input {
   margin: 5px;
   margin-bottom: 10px;
 }
 
-.green{
-  color: green;
+.header{
+  text-shadow: 2px 2px 3px rgb(17, 3, 138);
+/* margin: 85%;
+width: 85%;
+background-color: rgb(228, 239, 248);
+box-shadow: 5px 5px 8px rgb(17, 3, 138);
+border: 1px solid rgb(3, 3, 3);
+border-radius: 15px;
+padding: 20px; */
 }
 
-.yellow{
-  color:rgb(200, 200, 27);
+
+#blueGood, .textBlue{
+  color: blue;
 }
 
-.red{
-  color: red;
+#greenFair, .textGreen{
+  color:rgb(8, 133, 29);
+}
+
+#redBad, .textRed{
+  color: orange;
+}
+
+.key{
+margin: .5em;
+margin-left: .5em;
+}
+
+.clickForDataText{
+  font-size: small;
+}
+
+.listBox{
+background-color: rgb(225, 234, 242);
+width: 90%;
+border: 1px rgb(3, 3, 3);
+border-radius: 15px;
+box-shadow: 5px 5px 8px rgb(17, 3, 138);
+/* box-shadow: 3px 3px rgb(71, 8, 158), -1em 0 .4em rgb(13, 13, 139); */
+padding: 10px;
+}
+
+#listBox:hover {
+  background-color: rgb(182, 217, 244);
+}
+
+ul{
+  list-style-type: none;
+}
+
+.regBtn{
+  margin-top: 70%;
+}
+
+.noteBox{
+font-family:monospace;
+width: 90%;
+border-radius: 15px;
+box-shadow: 5px 5px 8px rgb(17, 3, 138);
+padding: 10px;
 }
