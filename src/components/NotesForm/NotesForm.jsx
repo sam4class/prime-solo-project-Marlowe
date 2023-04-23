@@ -50,17 +50,37 @@ function NotesForm() {
         <form
             noValidate
             onSubmit={addNewNote}>
-            <FormControl variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
-            <InputLabel shrink>Lake Name</InputLabel>
-            <Select label="Lake Name"value={addLake} onChange={(event) => setAddLake(event.target.value)}>
+            <FormControl fullWidth variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
+            <InputLabel id="menu" >Lake</InputLabel>
+            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)}>
                 {/* <option label='Which Lake Are You At?' value="empty"></option> */}
-                <MenuItem value={lakeList.map((item) => {
+                {lakeList.map((item) => {
                     return (
-                        <option key={item.id} label={item.name} value={item.id}></option>
+                        <MenuItem key={item.id} value={item.id}> {item.name} </MenuItem>
                     )
-                })}></MenuItem>
+                })}
             </Select>
             </FormControl>
+            {/* <FormControl fullWidth variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
+            <InputLabel id="menu" >Lake</InputLabel>
+            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)}>
+                {/* <option label='Which Lake Are You At?' value="empty"></option> */}
+                        {/* <MenuItem value={lakeList.id}>Bde Maka Ska- 32nd Street Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Bde Maka Ska- North Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Bde Maka Ska- Thomas Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Cedar Lake- East Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Cedar Lake- Point Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Cedar Lake- South Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Lake Harriet- North</MenuItem>
+                        <MenuItem value={lakeList.id}>Lake Harriet- South</MenuItem>
+                        <MenuItem value={lakeList.id}>Lake Hiawatha Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Lake Nokomis- 50th Street Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Lake Nokomis- Main Beach</MenuItem>
+                        <MenuItem value={lakeList.id}>Theodore Wirth Park Beach</MenuItem>
+         
+            </Select>
+            </FormControl> */} 
+
             <br/>
             <TextField
                 label="Date"
