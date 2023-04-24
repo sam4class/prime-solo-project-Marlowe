@@ -40,8 +40,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // console.log('inside DELETE', req.params)
-    let sqlText =`DELETE FROM "notes" WHERE notes.id= $1;`;
-    let sqlReq = [req.params.id];
+    let sqlText =`DELETE FROM "notes" WHERE notes.id= $1 AND user.id = $2;`;
+    let sqlReq = [req.params.id, req.user.id];
 
     pool.query(sqlText, sqlReq)
     .then(() => {

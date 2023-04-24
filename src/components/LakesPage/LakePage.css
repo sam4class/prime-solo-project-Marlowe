@@ -1,0 +1,33 @@
+.header{
+    color: white;
+  padding-top: 40px;
+  text-shadow: 2px 2px 3px rgb(17, 3, 138);
+  width: 100%;
+  background-color: rgb(237, 243, 249);
+  background-image: url('/public/images/water_back.jpeg');
+  box-shadow: 5px 5px 8px rgb(17, 3, 138);
+  
+  }
+  
+  #blueGood, .textBlue{
+    color: blue;
+  }
+  
+  #greenFair, .textGreen{
+    color: rgb(16, 74, 16);
+  }
+  
+  #redBad, .textRed{
+    color: brown;
+  }
+  
+  .key{
+  margin: .5em;
+  margin-left: .5em;
+  }
+  
+  .clickForDataText{
+    font-size: small;
+  }
+
+  export

@@ -31,9 +31,7 @@ function LakesPage() {
     return (<>
         <center>
             <Typography variant="h4"
-                mt={4}
                 mb={2}
-                color="primary"
                 align="center"
             className="header"
             >

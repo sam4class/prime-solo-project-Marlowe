@@ -9,12 +9,12 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>As Minneasotans, we know how to make the most of every season, and this app helps you enjoy our 
-          beautiful Minneapolis lakes without worry! <br/>
-          Weather you are a local or a visitor, this app will provide you 
-          with up-to-date information on the status of our most popular lake beaches. You will be able to get out there and enjoy one of 
-          Minneastoa's favorite summer activities without a care.  <br/>
-          Happy Swimming!</p>
+        <p>As Minneasotans, we know how to make the most of every season, and this app helps you enjoy our
+          beautiful Minneapolis lakes without any worry!</p>
+        <p>Weather you are a local or a visitor, this app will provide you
+          with up-to-date information on the status of our most popular lake beaches. You will be able to get out there and enjoy one of
+          Minneastoa's favorite summer activities without a care.</p>
+        <p>Happy Swimming!</p>
 
       </div>
     </div>

@@ -12,7 +12,9 @@ function UserFavoritePage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const favLakeList = useSelector((store) => store.favLakeList);
-    // const  userNotes = useSelector((store) => store.userNotes);
+    const user = useSelector((store) => store.user);
+    console.log('HERE', favLakeList.user_id, user.id)
+    console.log(favLakeList)
 
 
     useEffect(() => {
@@ -25,6 +27,7 @@ function UserFavoritePage() {
 
 
     return (<>
+     
         <Typography
             m={3}
             variant="h5"
@@ -33,39 +36,40 @@ function UserFavoritePage() {
         </Typography>
 
         {favLakeList.map((item) => {
+            if(item.user_id === user.id){
             return (<>
                 <p key={item.id}>
                     {item.water_quality_status === 'GOOD' ?
-                        <p id='blueGood' className='listBox' onClick={() => {
+                        <li id='blueGood' className='listBox' onClick={() => {
                             console.log('clicking')
                             dispatch({
                                 type: 'WATER_DATA',
                                 payload: item.id
                             });
                             history.push('/waterData')
-                        }}>{item.name}</p> :
+                        }}> <i className="fa-solid fa-person-swimming"></i> {item.name}</li> :
                         item.water_quality_status === 'FAIR' ?
-                            <p id='greenFair' className='listBox' onClick={() => {
+                            <li id='greenFair' className='listBox' onClick={() => {
                                 console.log('clicking')
                                 dispatch({
                                     type: 'WATER_DATA',
                                     payload: item.id
                                 });
                                 history.push('/waterData')
-                            }}>{item.name}</p> :
+                            }}><i className='fas fa-exclamation-triangle'></i> {item.name}</li> :
                             item.water_quality_status === 'BAD' ?
-                                <p id='redBad' className='listBox' onClick={() => {
+                                <li id='redBad' className='listBox' onClick={() => {
                                     console.log('clicking')
                                     dispatch({
                                         type: 'WATER_DATA',
                                         payload: item.id
                                     });
                                     history.push('/waterData')
-                                }}>{item.name}</p> : <></>
+                                }}><i className='fas fa-ban'></i> {item.name}</li> : <></>
                     }
                 </p>
             </>)
-        })}
+        }})}
         <Box
             m={1}
             display="flex"
@@ -76,9 +80,11 @@ function UserFavoritePage() {
                 size='small'
                 onClick={toNotesPage}>Make a Note</Button>
         </Box>
+
         <hr />
         <NotePage />
-    </>
+        
+    </> 
     )
 }
 export default UserFavoritePage;

@@ -32,7 +32,7 @@ Button
   border-color: #010a41;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #000cb0;
+  background-color: rgb(16, 80, 136);
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -119,14 +119,15 @@ input {
 }
 
 .header{
-  text-shadow: 2px 2px 3px rgb(17, 3, 138);
-/* margin: 85%;
-width: 85%;
-background-color: rgb(228, 239, 248);
-box-shadow: 5px 5px 8px rgb(17, 3, 138);
-border: 1px solid rgb(3, 3, 3);
-border-radius: 15px;
-padding: 20px; */
+color: white;
+padding-top: 30px;
+text-shadow: 3px 3px 3px rgb(3, 44, 80);
+width: 100%;
+background-color: rgb(237, 243, 249);
+background-image: url('/public/images/water_back.jpeg');
+background-position: center;
+box-shadow: 5px 5px 8px rgb(16, 80, 136);
+
 }
 
 #blueGood, .textBlue{
@@ -147,6 +148,7 @@ margin-left: .5em;
 }
 
 .clickForDataText{
+  color:#837575;
   font-size: small;
 }
 
@@ -155,7 +157,7 @@ background-color: rgb(235, 241, 247);
 width: 90%;
 border: 1px rgb(3, 3, 3);
 border-radius: 15px;
-box-shadow: 5px 5px 8px rgb(17, 3, 138);
+box-shadow: 5px 5px 8px rgb(16, 80, 136);
 padding: 10px;
 }
 
@@ -167,11 +169,19 @@ padding: 10px;
   margin-top: 70%;
 }
 
+li{
+  list-style: none;
+}
 .noteBox{
 font-family: monospace;
 width: 90%;
 border-radius: 15px;
-box-shadow: 5px 5px 8px rgb(17, 3, 138);
+box-shadow: 5px 5px 8px rgb(16, 80, 136);
 padding: 10px;
 }
-
+/* 
+.welcomeHeader{
+  padding-top: 40px;
+  background-image: url('/public/images/water_back.jpeg');
+  background-position: center;
+} */

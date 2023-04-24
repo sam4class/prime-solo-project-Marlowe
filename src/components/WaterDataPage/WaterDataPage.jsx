@@ -27,8 +27,8 @@ function WaterDataPage() {
         <Card sx={{ maxWidth: 375 }}
         style={{ border: "none", boxShadow: "none"}}>
       <CardMedia
-        sx={{ height: 140 }}
-        image="/images/waterBackground.jpeg"
+        sx={{ height: 90 }}
+        image="/images/water_back.jpeg"
         title="water"
       />
       <CardContent>

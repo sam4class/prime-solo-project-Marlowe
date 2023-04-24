@@ -37,7 +37,7 @@ function NotesForm() {
     }
 
     function cancelNote() {
-        history.push('/user');
+        history.push('/favorite');
     }
 
     return (<>

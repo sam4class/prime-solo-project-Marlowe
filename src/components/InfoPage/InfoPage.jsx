@@ -8,11 +8,11 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-<p>Water data brought to by Minneapolis Park and Recreation Board.<br/>
-All data is gathered once a week, while Minneapolis beaches are open, and tested for safty.<br/>
+      <p>Water data brought to by Minneapolis Park and Recreation Board.</p>
+      <p>All data is gathered once a week, while Minneapolis beaches are open, and tested for safty.</p>
 
-For more information about Minneapolis water testing details go to: https://www.minneapolisparks.org/park-care-improvements/water_resources/lake_water_resources</p>    
-</div>
+      <p>For more information about Minneapolis water testing details go to: https://www.minneapolisparks.org/park-care-improvements/water_resources/lake_water_resources</p>
+    </div>
   );
 }
 

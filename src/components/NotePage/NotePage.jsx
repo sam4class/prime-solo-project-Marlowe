@@ -13,6 +13,7 @@ function NotePage() {
 
     const [open, setOpen] = useState(false);
     const userNotes = useSelector((store) => store.userNotes);
+    const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -39,6 +40,7 @@ function NotePage() {
 
             {userNotes ?
                 userNotes.map((item) => {
+                    if(item.user_id === user.id){
                     return (<>
                         <ul className="noteBox" key={item.id}>
 
@@ -99,7 +101,7 @@ function NotePage() {
                             </Dialog> */}
                         </Box>
                     </>)
-                }) : <p></p>}
+                }}) : <p></p>}
 
         </div>
     )
