@@ -13,8 +13,8 @@ function UserFavoritePage() {
     const history = useHistory();
     const favLakeList = useSelector((store) => store.favLakeList);
     const user = useSelector((store) => store.user);
-    console.log('HERE', favLakeList.user_id, user.id)
-    console.log(favLakeList)
+    console.log('HERE in UserFavPage', favLakeList.user_id, user.id)
+    
 
 
     useEffect(() => {
@@ -35,6 +35,8 @@ function UserFavoritePage() {
             Your Lakes:
         </Typography>
 
+        {favLakeList.length ? 
+            <>
         {favLakeList.map((item) => {
             if(item.user_id === user.id){
             return (<>
@@ -69,7 +71,7 @@ function UserFavoritePage() {
                     }
                 </p>
             </>)
-        }})}
+        }})}  </> :<></>}
         <Box
             m={1}
             display="flex"

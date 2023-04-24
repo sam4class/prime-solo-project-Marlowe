@@ -43,7 +43,7 @@ function WaterDataPage() {
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-        <p>E.coli Reading Range: <br/> 6-4 Good, 3-2 Fair, 1 Bad</p>
+        <p>E.coli Reading Range: <br/> 6-4 Good, 3-2 Fair, 1-0 Bad</p>
         </Typography>
 
         <Typography variant="body1">

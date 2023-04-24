@@ -30,10 +30,16 @@ function LakesPage() {
 
     return (<>
         <center>
-            <Typography variant="h4"
-                mb={2}
-                align="center"
-            className="header"
+            <Typography
+            variant="h5"
+            mb={2}
+            className="header">
+                App Name
+            </Typography>
+            <Typography 
+            variant="h6"
+            color="primary"
+            align="center"
             >
                 Top Swimming Beaches in Mpls
             </Typography>
@@ -68,32 +74,32 @@ function LakesPage() {
                         // <center>
                             <p key={item.id}>
                                 {item.water_quality_status === 'GOOD' ?<>
-                                    <p id='blueGood' className="listBox" onClick={() => {
+                                    <li id='blueGood' className="listBox" onClick={() => {
                                         console.log('clicking')
                                         dispatch({
                                             type: 'WATER_DATA',
                                             payload: item.id
                                         });
                                         history.push('/waterData')
-                                    }}> <i className="fa-solid fa-person-swimming"></i> {item.name}</p> </>:
+                                    }}> <i className="fa-solid fa-person-swimming"></i> {item.name}</li> </>:
                                     item.water_quality_status === 'FAIR' ?
-                                        <p id='greenFair' className="listBox" onClick={() => {
+                                        <li id='greenFair' className="listBox" onClick={() => {
                                             console.log('clicking')
                                             dispatch({
                                                 type: 'WATER_DATA',
                                                 payload: item.id
                                             });
                                             history.push('/waterData')
-                                        }}><i className='fas fa-exclamation-triangle'></i> {item.name}</p> :
+                                        }}><i className='fas fa-exclamation-triangle'></i> {item.name}</li> :
                                         item.water_quality_status === 'BAD' ?
-                                            <p id='redBad' className="listBox" onClick={() => {
+                                            <li id='redBad' className="listBox" onClick={() => {
                                                 console.log('clicking')
                                                 dispatch({
                                                     type: 'WATER_DATA',
                                                     payload: item.id
                                                 });
                                                 history.push('/waterData')
-                                            }}><i className='fas fa-ban'></i> {item.name}</p> : <></>
+                                            }}><i className='fas fa-ban'></i> {item.name}</li> : <></>
                                 }
                             </p>
                         // {/* </center>

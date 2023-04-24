@@ -2,7 +2,7 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 
 function UserPage() {
@@ -12,6 +12,7 @@ function UserPage() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
   const lakeList = useSelector((store) => store.lakeList);
+  // const [isLoading, setIsLoading] = useState(true);
   // const  userNotes = useSelector((store) => store.userNotes);
 
 
@@ -23,13 +24,18 @@ function UserPage() {
     history.push('/favorite')
   }
 
+  //i need to figure out how to conditionally render this to make sure it's grabbing the changed onboarded
   useEffect(() => {
     console.log('in user', user)
     if (user.onboarded === true) {
-      history.push('/favorite')
+      history.push('/favorite') 
     }
+    // setIsLoading(false);
   }, [user])
 
+  // if(isLoading){
+  //   return <p>Grabbing Favortie Lakes . . .</p>
+  // }
 
   return (
     <div className="container">
@@ -51,7 +57,7 @@ function UserPage() {
           color="primary"
           align="center"
         >
-          <h3>Pick Three Lakes to Watch:</h3>
+          <h3>Pick Lakes to Watch:</h3>
         </Typography>
       </center>
 
@@ -90,7 +96,7 @@ function UserPage() {
             alignItems="flex-end"
             className="submitBtn">
             <Button
-              variant='contained'
+              variant='outlined'
               onClick={handleOnboarded}>Submit Favorites</Button>
           </Box>
         </> : <p>List Timed Out</p>}

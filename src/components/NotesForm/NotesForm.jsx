@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 
 
 function NotesForm() {
-    console.log('inside NotesForm() page')
+    // console.log('inside NotesForm() page')
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -33,7 +33,7 @@ function NotesForm() {
         setAddNote('');
         setAddLake('');
 
-        history.push('/user');
+        history.push('/favorite');
     }
 
     function cancelNote() {

@@ -11,6 +11,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 function NotePage() {
 
+    const [deleteId, setDeleteId] = useState('');
     const [open, setOpen] = useState(false);
     const userNotes = useSelector((store) => store.userNotes);
     const user = useSelector((store) => store.user);
@@ -21,11 +22,12 @@ function NotePage() {
         dispatch({ type: 'FETCH_NOTES' })
     }, []);
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (id) => {
+        setDeleteId(id)
         setOpen(true);
     }
 
-    const handleClose = () => {
+    const handleClose = (id) => {
         setOpen(false);
     }
 
@@ -55,7 +57,7 @@ function NotePage() {
                             display="flex"
                             justifyContent="flex-end"
                             alignItems="flex-end">
-                            <Button
+                            {/* <Button
                                 variant="contained"
                                 size="small"
                                 id={item.id}
@@ -64,11 +66,12 @@ function NotePage() {
                                         type: 'DELETE_NOTE',
                                         payload: item.id
                                     })
-                                }}>Delete Note</Button>
+                                }}>Delete Note</Button> */}
 
-                            {/* <Button
+                            <Button
                                 variant="contained"
-                                onClick={handleClickOpen}>
+                                //
+                                onClick={() => {handleClickOpen(item.id)}}>
                                 Delete
                             </Button>
                             <Dialog
@@ -82,23 +85,24 @@ function NotePage() {
                                 </DialogTitle>
                                 <DialogContent>
                                     <DialogContentText id="alert-dialog-description">
-                                        Once this note is deleted, you will no longer have it.  Would you like to delete your note?
+                                        Once this note is deleted, it will be gone.  Would you like to delete your note?
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
                                     <Button onClick={handleClose}>Disagree</Button>
                                     <Button onClick={() => {
-                                        console.log('ID', item.id)
+                                        console.log('ID', deleteId)
                                         dispatch({
                                             type: 'DELETE_NOTE',
-                                            payload: item.id
+                                            payload: deleteId
                                         })
                                         history.push('/user');
-                                    }} autoFocus>
+                                    }} 
+                                    autoFocus>
                                         Agree
                                     </Button>
                                 </DialogActions>
-                            </Dialog> */}
+                            </Dialog>
                         </Box>
                     </>)
                 }}) : <p></p>}
