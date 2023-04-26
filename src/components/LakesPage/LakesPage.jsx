@@ -128,7 +128,7 @@ function LakesPage() {
                 alignItems="flex-end"
             >
                 <Button
-                    variant="outlined"
+                    variant="contained"
                     onClick={toSignIn}>Sign In</Button>
             </Box>
         </div>

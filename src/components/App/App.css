@@ -106,19 +106,19 @@ Form Treatment
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
-/* body{
+body{
   background-image: url('/public/images/rippleLake.jpeg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   position: relative;
-} */
+}
 
 input {
   margin: 5px;
   margin-bottom: 10px;
 }
 
-.header{
+/* .header{
 color: white;
 padding-top: 30px;
 text-shadow: 3px 3px 3px rgb(3, 44, 80);
@@ -128,7 +128,7 @@ background-image: url('/public/images/water_back.jpeg');
 background-position: center;
 box-shadow: 5px 5px 8px rgb(16, 80, 136);
 
-}
+} */
 
 #blueGood, .textBlue{
   color: blue;
@@ -162,7 +162,7 @@ padding: 10px;
 }
 
 #listBox:hover {
-  background-color: rgb(182, 217, 244);
+  background-color: rgb(94, 134, 164);
 }
 
 .regBtn{
@@ -173,6 +173,7 @@ li{
   list-style: none;
 }
 .noteBox{
+background-color: aliceblue;
 font-family: monospace;
 width: 90%;
 border-radius: 15px;
@@ -184,4 +185,14 @@ padding: 10px;
   padding-top: 40px;
   background-image: url('/public/images/water_back.jpeg');
   background-position: center;
+} */
+/* .favBtn{
+  color: #efefef;
+  background-color: rgb(29, 29, 181);
+  border: none;
+  border-radius: 5px;
+  padding: 10px
+}
+.favBtn:active{
+  background-color: #008183;
 } */

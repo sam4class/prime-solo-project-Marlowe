@@ -116,7 +116,15 @@ function App() {
             exact
             path="/favorite"
           >
-            <UserFavoritePage />
+            {!user.onboarded ?
+              // If the user is already logged in, 
+              // redirect to the /user page
+              <Redirect to="/user" />
+              :
+              // Otherwise, show the login page
+              <UserFavoritePage />
+            }
+           
           </ProtectedRoute>
 
           <Route

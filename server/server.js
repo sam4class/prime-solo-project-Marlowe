@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const lakesRouter = require('./routes/lakes.router');
 const notesRouter = require('./routes/notes.router');
 const favoriteRouter = require('./routes/favorite.router');
+const acresRouter = require('./routes/acres.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/lakes', lakesRouter);
 app.use('/api/notes', notesRouter);
 app.use('/api/favorite', favoriteRouter);
+app.use('/api/acres', acresRouter);
 
 // Serve static files
 app.use(express.static('build'));

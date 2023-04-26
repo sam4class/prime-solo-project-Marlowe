@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,14 +7,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box } from "@mui/material";
+import { useEffect } from "react";
 
 
 
 function WaterDataPage() {
 
     const history = useHistory();
+    const dispatch = useDispatch();
     const waterData = useSelector((store) => store.waterData);
-    console.log('waterData', waterData);
+    // const acresValue = useSelector((store) => store.acresValue);
+    // console.log('acresValue', acresValue);
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_ACRES'
+        });
+    }, []);
 
     function handleClick(){
         history.push('/lakes')
@@ -60,6 +69,10 @@ function WaterDataPage() {
 
         <Typography variant="body1">
         <p>Microcystin Reading: {waterData[0].microcystin_reading}</p>
+        </Typography>
+
+        <Typography variant="body1">
+        <p>Acres: </p>
         </Typography>
       </CardContent>
       <CardActions>

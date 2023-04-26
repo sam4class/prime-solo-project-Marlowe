@@ -5,7 +5,7 @@ function* isOnboarded(action){
     console.log('action', action)
     try{
         yield axios.put(`/api/user/${action.payload}`, action.payload);
-        //can this be empty?
+        yield put({ type: 'FETCH_USER' });
     }catch(err){
         console.log('inside PUT saga isOnboared', err)
     }

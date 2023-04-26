@@ -12,7 +12,7 @@ function UserPage() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
   const lakeList = useSelector((store) => store.lakeList);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   // const  userNotes = useSelector((store) => store.userNotes);
 
 
@@ -21,6 +21,13 @@ function UserPage() {
       type: 'SET_ONBOARD',
       payload: user.id
     })
+      dispatch({ 
+        type: 'FETCH_USER' 
+      })
+      dispatch({
+        type: 'FETCH_LAKES'
+      })
+    
     history.push('/favorite')
   }
 
@@ -30,12 +37,12 @@ function UserPage() {
     if (user.onboarded === true) {
       history.push('/favorite') 
     }
-    // setIsLoading(false);
+    setIsLoading(false);
   }, [user])
 
-  // if(isLoading){
-  //   return <p>Grabbing Favortie Lakes . . .</p>
-  // }
+  if(isLoading){
+    return <p>Grabbing Favortie Lakes . . .</p>
+  }
 
   return (
     <div className="container">
@@ -96,7 +103,7 @@ function UserPage() {
             alignItems="flex-end"
             className="submitBtn">
             <Button
-              variant='outlined'
+              variant='contained'
               onClick={handleOnboarded}>Submit Favorites</Button>
           </Box>
         </> : <p>List Timed Out</p>}

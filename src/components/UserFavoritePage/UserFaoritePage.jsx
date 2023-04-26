@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import NotePage from "../NotePage/NotePage";
@@ -13,13 +13,18 @@ function UserFavoritePage() {
     const history = useHistory();
     const favLakeList = useSelector((store) => store.favLakeList);
     const user = useSelector((store) => store.user);
-    console.log('HERE in UserFavPage', favLakeList.user_id, user.id)
+    const [isLoading, setIsLoading] = useState(true);
     
-
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FAVORITES' })
+        setIsLoading(false);
     }, []);
+
+    if(isLoading){
+        return <p>Grabbing Favortie Lakes . . .</p>
+      }
+    
 
     function toNotesPage() {
         history.push('/notes')

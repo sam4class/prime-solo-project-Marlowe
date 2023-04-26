@@ -5,6 +5,7 @@ import lakeList from './lakeList.reducer';
 import waterData from './waterData.reducer';
 import userNotes from './note.reducer';
 import favLakeList from './getFavorite.reducer';
+import acresValue from './acres.reducer'
 
 
 // rootReducer is the primary reducer for our entire project
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   waterData,
   userNotes,
   favLakeList,
+  acresValue,
    // will have an id and username if someone is logged in
 });
 

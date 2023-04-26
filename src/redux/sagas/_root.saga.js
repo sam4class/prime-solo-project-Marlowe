@@ -10,6 +10,7 @@ import noteSaga from './note.saga';
 import deleteNote from './delete.saga';
 import fetchFavLakes from './getFavLakes.saga';
 import putOnboarded from './putOnboarded.saga';
+import fetchAcres from './acres.saga';
 
 
 // rootSaga is the primary saga.
@@ -32,5 +33,6 @@ export default function* rootSaga() {
     deleteNote(),
     fetchFavLakes(),
     putOnboarded(),
+    fetchAcres(),
     ]);
 }

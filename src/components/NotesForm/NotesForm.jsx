@@ -122,7 +122,7 @@ function NotesForm() {
                 justifyContent="flex-end"
                 alignItems="flex-end">
                 <Button
-                    variant="outlined"
+                    variant="contained"
                     size="small"
                     className="formBtn"
                     onClick={cancelNote}>Cancel</Button>
