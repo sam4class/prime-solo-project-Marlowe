@@ -8,7 +8,7 @@ function* fetchAllNotes(){
         // console.log('grabbing notes in saga', allNotes.data);
         yield put({type: 'SET_NOTES', payload: allNotes.data})
     }catch(err) {
-        conaole.log('error getting notes in saga', err)
+        console.log('error getting notes in saga', err)
     }
 }
 

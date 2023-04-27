@@ -18,6 +18,7 @@ function UserFavoritePage() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FAVORITES' })
+       
         setIsLoading(false);
     }, []);
 
@@ -25,13 +26,19 @@ function UserFavoritePage() {
         return <p>Grabbing Favortie Lakes . . .</p>
       }
     
-
     function toNotesPage() {
         history.push('/notes')
     }
 
     function toUserPage(){
         history.push('/user')
+    }
+
+    function onboardedOff(){
+        dispatch({
+            type: "SET_ONBOARD_OFF",
+            payload: user.id
+        })
     }
 
 
@@ -47,10 +54,11 @@ function UserFavoritePage() {
         {favLakeList.length ? 
             <>
         {favLakeList.map((item) => {
+            console.log('this is item', item)
             if(item.user_id === user.id){
             return (<>
                 <p key={item.id}>
-                    {item.water_quality_status === 'GOOD' ?
+                   {item.water_quality_status === 'GOOD' ?
                         <li id='blueGood' className='listBox' onClick={() => {
                             console.log('clicking')
                             dispatch({
@@ -76,8 +84,20 @@ function UserFavoritePage() {
                                         payload: item.id
                                     });
                                     history.push('/waterData')
-                                }}><i className='fas fa-ban'></i> {item.name}</li> : <></>
-                    }
+                                }}><i className='fas fa-ban'></i> {item.name}</li> 
+                                : <></>
+                    }<span><Button 
+                        variant="contained"
+                        size= "samll"
+                        onClick={() => {
+                        console.log('ID', item)
+                        dispatch({
+                            type: 'DELETE_FAV',
+                            payload: item.id
+                            
+                        })
+                        history.push('/user');
+                    }}>DELETE</Button> </span> 
                 </p>
             </>)
         }})}  </> :<></>}
@@ -93,6 +113,11 @@ function UserFavoritePage() {
         onClick={toNotesPage}>Make a Note</Button>
         </Box>
         
+        <Button
+        variant="contained"
+        size='small'
+        onClick={onboardedOff}>Add a Another Lake</Button>
+
         <hr />
         <NotePage />
         

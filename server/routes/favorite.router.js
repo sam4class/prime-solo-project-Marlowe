@@ -23,4 +23,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 })
 
+///for the delete button in favs page
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('inside DELETE', req.params)
+    let sqlText =`DELETE FROM "fav_lakes" WHERE lakes_id= $1;`;
+    let sqlReq = [req.params.id];
+
+    pool.query(sqlText, sqlReq)
+    console.log('req', req.params.id)
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('eror in DELETE router', err)
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

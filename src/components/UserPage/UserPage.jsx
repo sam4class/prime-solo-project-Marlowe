@@ -78,10 +78,12 @@ function UserPage() {
 
       {lakeList.length ?
         <>
+       
           {lakeList.map((item) => {
             return (
               <p key={item.id}>
-                <p className="listBox"       onClick={(event) => {
+              
+                <p className="listBox" onClick={(event) => {
                       event.target.style.backgroundColor = 'green'
                       // console.log('clicking for fav!', item.id)
                       dispatch({
@@ -90,26 +92,9 @@ function UserPage() {
                           lakes_id: item.id,
                         }
                       });
+                
                     }}> <i id='heartBtn' className='fa fa-heart'></i> {item.name}</p>
-
-                {/* <Box
-                  m={1}
-                  display="flex"
-                  justifyContent="flex-end"
-                  alignItems="flex-end">
-                  <button
-                    className='favBtn'
-                    onClick={(event) => {
-                      event.target.style.backgroundColor = 'green'
-                      // console.log('clicking for fav!', item.id)
-                      dispatch({
-                        type: 'FAV_LAKES',
-                        payload: {
-                          lakes_id: item.id,
-                        }
-                      });
-                    }}>FAV LAKE</button>
-                </Box> */}
+                    
               </p>)
 
           })}
