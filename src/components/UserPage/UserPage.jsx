@@ -90,7 +90,7 @@ function UserPage() {
                           lakes_id: item.id,
                         }
                       });
-                    }}> <i className='fa fa-heart'></i> {item.name}</p>
+                    }}> <i id='heartBtn' className='fa fa-heart'></i> {item.name}</p>
 
                 {/* <Box
                   m={1}

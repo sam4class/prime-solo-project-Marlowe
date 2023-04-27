@@ -247,7 +247,9 @@ padding: 10px;
   font-size: small;
 }
 
-
+#heartBtn{
+  color: rgb(214, 26, 57);
+}
 
 /* 
 .welcomeHeader{

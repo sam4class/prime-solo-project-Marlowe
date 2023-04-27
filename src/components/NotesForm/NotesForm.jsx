@@ -10,7 +10,7 @@ function NotesForm() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [addDate, setAddDate] = useState('');
+    const [addDate, setAddDate] = useState(new Date().toLocaleDateString());
     const [addNote, setAddNote] = useState('');
     const [addLake, setAddLake] = useState('');
     const lakeList = useSelector((store) => store.lakeList);
@@ -98,6 +98,7 @@ function NotesForm() {
                 value={addDate}
                 onChange={(event) => setAddDate(event.target.value)}
             />
+     
             {/* <input type='text' placeholder='Date 01-01-2023' value={addDate} onChange={(event) => setAddDate(event.target.value)}/> */}
             <TextField
                 label="Note"
