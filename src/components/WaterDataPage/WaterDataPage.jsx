@@ -16,6 +16,7 @@ function WaterDataPage() {
     const history = useHistory();
     const dispatch = useDispatch();
     const waterData = useSelector((store) => store.waterData);
+    const user = useSelector((store) => store.user)
     // const acresValue = useSelector((store) => store.acresValue);
     // console.log('acresValue', acresValue);
 
@@ -26,7 +27,11 @@ function WaterDataPage() {
     }, []);
 
     function handleClick(){
+        if(user.onboarded === true){
+            history.push('/favorite')
+        }else{
         history.push('/lakes')
+        }
     }
 
 
@@ -52,7 +57,7 @@ function WaterDataPage() {
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-        <p>E.coli Reading Range: <br/> 6-4 Good, 3-2 Fair, 1-0 Bad</p>
+        <p>E.coli Reading Range: <br/> 0-1 Good, 2-3 Fair, 4-6 Bad</p>
         </Typography>
 
         <Typography variant="body1">
@@ -64,7 +69,7 @@ function WaterDataPage() {
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-        <p>Microcystin Reading Deals with Blue Green Alge Range: <br/> 1-4 Good, 5-7 Fair, 8-10 Bad</p>
+        <p>Microcystin (Blue Green Algae) Reading Range: <br/> 1-4 Good, 5-7 Fair, 8-10 Bad</p>
         </Typography>
 
         <Typography variant="body1">

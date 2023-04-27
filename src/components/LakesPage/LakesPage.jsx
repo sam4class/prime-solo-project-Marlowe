@@ -12,7 +12,8 @@ function LakesPage() {
     const history = useHistory();
 
     const lakeList = useSelector((store) => store.lakeList);
-    console.log('this is lakeList', lakeList);
+    // console.log('this is lakeList', lakeList);
+    const user = useSelector((store) => store.user)
 
     useEffect(() => {
         dispatch({
@@ -30,30 +31,22 @@ function LakesPage() {
 
     return (<>
         <center>
-            <Typography
-            variant="h5"
+            <h3 className="header">Lakeside</h3>
+            {/* <Typography
+            variant="h3"
+            color="primary"
             mb={2}
             className="header">
-                App Name
-            </Typography>
+                Lakeside
+            </Typography> */}
             <Typography 
             variant="h6"
-            color="primary"
+            className="topText"
             align="center"
             >
                 Top Swimming Beaches in Mpls
             </Typography>
         </center>
-        {/* <Typography
-            variant="body2"
-            className="key"
-        >
-            Blue means 'Swim!' <i className="fa-solid fa-person-swimming"></i>
-            <br />
-            Green Alge means caution . . .<i className='fas fa-exclamation-triangle'></i> 
-            <br />
-            Orange means 'Don't Do It!' <i className='fas fa-ban'></i>
-        </Typography> */}
 
         <center>
             <Typography
@@ -127,9 +120,15 @@ function LakesPage() {
                 justifyContent="flex-end"
                 alignItems="flex-end"
             >
-                <Button
+              {user.onboarded ?
+              <Button
+              variant="contained"
+              onClick={toSignIn}>
+                Back To Favorites
+              </Button>
+            :  <Button
                     variant="contained"
-                    onClick={toSignIn}>Sign In</Button>
+                    onClick={toSignIn}>Sign In</Button>}
             </Box>
         </div>
 

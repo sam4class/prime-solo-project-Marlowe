@@ -36,7 +36,7 @@ function UserFavoritePage() {
         <Typography
             m={3}
             variant="h5"
-            color='primary'>
+            className="whiteText">
             Your Lakes:
         </Typography>
 
@@ -78,14 +78,14 @@ function UserFavoritePage() {
             </>)
         }})}  </> :<></>}
         <Box
-            m={1}
-            display="flex"
-            justifyContent="flex-end"
-            alignItems="flex-end">
-            <Button
-                variant="contained"
-                size='small'
-                onClick={toNotesPage}>Make a Note</Button>
+        m={1}
+        display="flex"
+        justifyContent="flex-end"
+        alignItems="flex-end">
+        <Button
+        variant="contained"
+        size='small'
+        onClick={toNotesPage}>Make a Note</Button>
         </Box>
 
         <hr />

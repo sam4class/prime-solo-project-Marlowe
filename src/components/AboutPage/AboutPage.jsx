@@ -8,7 +8,7 @@ import React from 'react';
 function AboutPage() {
   return (
     <div className="container">
-      <div>
+      <div className="aboutBox">
         
         <p>As Minneasotans, we know how to make the most of every season, and this app helps you enjoy our
           beautiful Minneapolis lakes without any worry!</p>
@@ -17,14 +17,21 @@ function AboutPage() {
           Minneastoa's favorite summer activities without a care.</p>
         <p>Happy Swimming!</p>
         <p>How to Use the App:
-          <ul>
+          <ul className="aboutList">
             <li>Blue means 'Swim!'</li>
             <li>Green Alge means 'Getting a little dicey . . .'</li>
             <li>Red/Brown means 'Nope, don't do it'</li>
+            <br/>
             <li>Clicking on the Name of the lake gives you the current water data.</li>
-            <li>Signing-in will let you see the lakes you most care about, weather that be because they are closest to you or </li>
+            <br/>
+            <li>Signing-in will let you see the lakes you most care about, weather that be because they are closest to you or the ones you love to visit</li>
           </ul>
         </p>
+        <p>Water data brought to by Minneapolis Park and Recreation Board.</p>
+        <p>For more information about Minneapolis water testing details go to:<br/>
+         https://www.minneapolisparks.org<br/>
+         /park-care-improvements/water_resources/<br/>
+         lake_water_resources</p>
 
       </div>
     </div>

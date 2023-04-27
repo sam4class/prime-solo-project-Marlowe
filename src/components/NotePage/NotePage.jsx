@@ -36,7 +36,7 @@ function NotePage() {
             <Typography
                 m={3}
                 variant="h5"
-                color='primary'>
+                className="whiteText">
                 Lake Notes:
             </Typography>
 

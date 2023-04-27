@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { Box } from '@mui/material';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -57,7 +58,13 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+      <Box
+            m={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end">
+        <input className="btn" type="submit" name="submit" value="LOG IN" />
+        </Box>
       </div>
     </form>
   );

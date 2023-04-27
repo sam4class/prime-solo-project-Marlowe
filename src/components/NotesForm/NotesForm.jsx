@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
@@ -15,6 +15,12 @@ function NotesForm() {
     const [addLake, setAddLake] = useState('');
     const lakeList = useSelector((store) => store.lakeList);
     // console.log('the lakeList', lakeList);
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_LAKES'
+        })
+    }, []);
 
     function addNewNote(event) {
         // console.log('inside addNewNote()')
@@ -44,7 +50,7 @@ function NotesForm() {
         <Typography
             m={3}
             variant="h5"
-            color="primary">
+            className="whiteText">
             Add A Note:
         </Typography>
         <form
@@ -52,7 +58,7 @@ function NotesForm() {
             onSubmit={addNewNote}>
             <FormControl fullWidth variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
             <InputLabel id="menu" >Lake</InputLabel>
-            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)}>
+            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)} className="noteBackground">
                 {/* <option label='Which Lake Are You At?' value="empty"></option> */}
                 {lakeList.map((item) => {
                     return (
@@ -84,10 +90,11 @@ function NotesForm() {
             <br/>
             <TextField
                 label="Date"
-                placeholder="01-01-2023"
+                placeholder="1-01-2023"
                 variant="outlined"
                 color="primary"
                 margin="normal"
+                className="noteBackground"
                 value={addDate}
                 onChange={(event) => setAddDate(event.target.value)}
             />
@@ -100,6 +107,7 @@ function NotesForm() {
                 rows={4}
                 margin="normal"
                 fullWidth
+                className="noteBackground"
                 value={addNote}
                 onChange={(event) => setAddNote(event.target.value)}
             />

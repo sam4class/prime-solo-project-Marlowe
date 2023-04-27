@@ -5,7 +5,7 @@
   align-items: center;
 
   margin: 0 0 30px;
-  margin-top: 38px;
+  margin-top: 45px;
   margin-bottom: 0px;
   background-color: rgb(16, 80, 136);
   overflow: hidden;
@@ -27,9 +27,11 @@
 
 .navLink, footer {
   display: inline-block;
-  color: #f2f2f2;
+  color: grey;
+  background-color: #ffffff;
+  /* color: #f2f2f2;
   background-color:rgb(16, 80, 136);
-  text-align: center;
+  text-align: center; */
   padding: 15px 10px;
   text-decoration: none;
   font-size: 15px;
@@ -43,5 +45,5 @@
 }
 
 .navLink:hover {
-  background-color: #004283;
+  background-color: #e8edf1;
 }

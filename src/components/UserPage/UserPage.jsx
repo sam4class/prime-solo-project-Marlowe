@@ -13,6 +13,8 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const lakeList = useSelector((store) => store.lakeList);
   const [isLoading, setIsLoading] = useState(true);
+  // const btn = document.getElementById('btn');
+  // const [color, setColor] = useState();
   // const  userNotes = useSelector((store) => store.userNotes);
 
 
@@ -46,12 +48,12 @@ function UserPage() {
 
   return (
     <div className="container">
+      <div className="textBoxFav">
       <Typography variant="h6"
-        mt={4}
+        
         mb={2}
-        color="primary"
         align="center"
-        className="welcomeHeader"
+        className="pickText"
       >
         Welcome, {user.username}!
       </Typography>
@@ -61,29 +63,26 @@ function UserPage() {
         <Typography variant="h7"
           mt={4}
           mb={2}
-          color="primary"
           align="center"
+          className="pickText"
         >
           <h3>Pick Lakes to Watch:</h3>
         </Typography>
+        <Typography
+        variant='body2'
+        className="pickText">
+          After selecting your favorite lakes to watch, hit SUBMIT button
+        </Typography>
       </center>
+      </div>
 
       {lakeList.length ?
         <>
           {lakeList.map((item) => {
             return (
               <p key={item.id}>
-                <p className="listBox">{item.name}</p>
-
-                <Box
-                  m={1}
-                  display="flex"
-                  justifyContent="flex-end"
-                  alignItems="flex-end">
-                  <Button
-                    variant='contained'
-                    size="small"
-                    onClick={() => {
+                <p className="listBox"       onClick={(event) => {
+                      event.target.style.backgroundColor = 'green'
                       // console.log('clicking for fav!', item.id)
                       dispatch({
                         type: 'FAV_LAKES',
@@ -91,8 +90,26 @@ function UserPage() {
                           lakes_id: item.id,
                         }
                       });
-                    }}>Fav Lake</Button>
-                </Box>
+                    }}> <i className='fa fa-heart'></i> {item.name}</p>
+
+                {/* <Box
+                  m={1}
+                  display="flex"
+                  justifyContent="flex-end"
+                  alignItems="flex-end">
+                  <button
+                    className='favBtn'
+                    onClick={(event) => {
+                      event.target.style.backgroundColor = 'green'
+                      // console.log('clicking for fav!', item.id)
+                      dispatch({
+                        type: 'FAV_LAKES',
+                        payload: {
+                          lakes_id: item.id,
+                        }
+                      });
+                    }}>FAV LAKE</button>
+                </Box> */}
               </p>)
 
           })}

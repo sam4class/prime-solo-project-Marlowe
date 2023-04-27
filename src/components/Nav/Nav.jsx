@@ -51,13 +51,13 @@ const linkToLogout = () => {
       <BottomNavigationAction label="Login" value="login" icon={<Login />} onClick={linkToLogIn} className="navLink"/>
       }
 
-      <BottomNavigationAction label="Home" value="nearby" icon={<HomeIcon />} className="navLink" onClick={linkToLakes} ></BottomNavigationAction>
-
-      <BottomNavigationAction label="About" value="about" icon={<FolderIcon />} className="navLink" onClick={linkToAbout}/>
-
       {user.id &&
       <BottomNavigationAction label="Favs" value="favorites" icon={<FavoriteIcon />} onClick={linkToFavs} className="navLink"/>
       }
+
+      <BottomNavigationAction label="About" value="about" icon={<FolderIcon />} className="navLink" onClick={linkToAbout}/>
+
+      <BottomNavigationAction label="Home" value="nearby" icon={<HomeIcon />} className="navLink" onClick={linkToLakes} ></BottomNavigationAction>
 
       {user.id &&
       <LogOutButton className="navLink"/>

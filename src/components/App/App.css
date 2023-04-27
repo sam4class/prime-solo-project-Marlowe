@@ -27,12 +27,14 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
+  font-size:small;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: inline-block;
   padding: 10px 20px;
-  border-color: #010a41;
-  border-width: 1px 1px 3px;
+  /* border-color: #010a41; */
+  border-width: 0px 0px .5px;
   border-radius: 4px;
-  background-color: rgb(16, 80, 136);
+  background-color: rgb(64, 114, 213);
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -100,14 +102,16 @@ Form Treatment
   width: 400px;
   max-width: 100%;
   padding: 25px;
-  margin: 0 auto 20px;
+  margin: 0 auto 315px;
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
 body{
-  background-image: url('/public/images/rippleLake.jpeg');
+  background-image: url('/public/images/blue_water.jpg');
+  /* background-image: url('/public/images/lakeBackground.jpg'); */
+  /* background-image: url('/public/images/lake_water.jpg'); */
   background-size: cover;
   background-repeat: repeat;
   position: relative;
@@ -118,20 +122,31 @@ input {
   margin-bottom: 10px;
 }
 
-/* .header{
-color: white;
-padding-top: 30px;
-text-shadow: 3px 3px 3px rgb(3, 44, 80);
+.header{
+font-size: 60px;
+font-family: cursive;
+color: rgb(244, 246, 247);
 width: 100%;
-background-color: rgb(237, 243, 249);
-background-image: url('/public/images/water_back.jpeg');
-background-position: center;
-box-shadow: 5px 5px 8px rgb(16, 80, 136);
+text-shadow: 4px 3px 3px rgb(3, 71, 94);
+margin: 1px;
 
-} */
+
+/* background-color: rgb(168, 195, 223); */
+/* background-image: url('/public/images/water_back.jpeg');
+background-position: center; */
+/* box-shadow: 5px 5px 8px rgb(16, 80, 136); */
+
+}
+
+.topText{
+  padding-top: 0px;
+  text-shadow: 4px 3px 3px rgb(3, 71, 94);
+  color:rgb(253, 253, 253);
+ 
+}
 
 #blueGood, .textBlue{
-  color: blue;
+  color: rgb(25, 25, 212);
 }
 
 #greenFair, .textGreen{
@@ -148,21 +163,53 @@ margin-left: .5em;
 }
 
 .clickForDataText{
-  color:#837575;
+  color:#e4cece;
+  text-shadow: 1px 3px 3px rgb(3, 71, 94);
   font-size: small;
+}
+
+.whiteText{
+  color:rgb(235, 241, 247);
+  text-shadow: 3px 3px 1px rgb(21, 72, 96);
 }
 
 .listBox{
 background-color: rgb(235, 241, 247);
 width: 90%;
 border: 1px rgb(3, 3, 3);
-border-radius: 15px;
-box-shadow: 5px 5px 8px rgb(16, 80, 136);
+border-radius: 10px;
+box-shadow: 5px 5px 8px rgb(12, 78, 103);
 padding: 10px;
+margin: 5px;
 }
 
-#listBox:hover {
+.listBox:hover {
   background-color: rgb(94, 134, 164);
+}
+
+.favBtn{
+  background-color: rgb(21, 106, 223);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.textBoxFav{
+background-color: rgb(235, 241, 247);
+width: 90%;
+border: 1px rgb(3, 3, 3);
+border-radius: 10px;
+box-shadow: 5px 5px 8px rgb(12, 78, 103);
+padding: 10px;
+margin:5px;
+
 }
 
 .regBtn{
@@ -180,19 +227,31 @@ border-radius: 15px;
 box-shadow: 5px 5px 8px rgb(16, 80, 136);
 padding: 10px;
 }
+
+.noteBackground{
+  background-color: #efefef;
+  border-radius: 5px;
+}
+
+.aboutBox{
+font-size: medium;
+background-color: aliceblue;
+width: 90%;
+border-radius: 15px;
+box-shadow: 5px 5px 8px rgb(16, 80, 136);
+padding-top: 0px;
+padding: 10px;
+}
+
+.aboutList{
+  font-size: small;
+}
+
+
+
 /* 
 .welcomeHeader{
   padding-top: 40px;
   background-image: url('/public/images/water_back.jpeg');
   background-position: center;
-} */
-/* .favBtn{
-  color: #efefef;
-  background-color: rgb(29, 29, 181);
-  border: none;
-  border-radius: 5px;
-  padding: 10px
-}
-.favBtn:active{
-  background-color: #008183;
 } */

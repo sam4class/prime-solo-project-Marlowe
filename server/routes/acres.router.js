@@ -1,7 +1,7 @@
-const express = require("express");
-const pool = require("../modules/pool");
-const router = express.Router();
-const axios = require('axios');
+// const express = require("express");
+// const pool = require("../modules/pool");
+// const router = express.Router();
+// const axios = require('axios');
 
 
 // router.get('/', (req, res) => {
@@ -168,43 +168,43 @@ const axios = require('axios');
 
 
 
+//___________________________________________lastest one_________________________
+// router.get('/', (req, res) => {
 
-router.get('/', (req, res) => {
-
-    const lakesArray = ['Bde Maka Ska', 'Cedar Lake', 'Lake Harriet', 'Lake Hiawatha', 'Lake Nokomis', 'Theodore Wirth Park'];
-    // const lakesArray = ['Bde%20Maka%20Ska', 'Cedar%20Lake', 'Lake%20Harriet', 'Lake%20Hiawatha', 'Lake%20Nokomis', 'Theodore%20Wirth%20Park'];
-    const results = [];
+//     const lakesArray = ['Bde Maka Ska', 'Cedar Lake', 'Lake Harriet', 'Lake Hiawatha', 'Lake Nokomis', 'Theodore Wirth Park'];
+//     // const lakesArray = ['Bde%20Maka%20Ska', 'Cedar%20Lake', 'Lake%20Harriet', 'Lake%20Hiawatha', 'Lake%20Nokomis', 'Theodore%20Wirth%20Park'];
+//     const results = [];
 
 
-    for (let lake of lakesArray) {
-        //axios here
-        axios.get(`https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Water/FeatureServer/0/query?where=NAME%20%3D%20'${lake}'&outFields=NAME,ACRES&outSR=4326&f=json`)
+//     for (let lake of lakesArray) {
+//         //axios here
+//         axios.get(`https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Water/FeatureServer/0/query?where=NAME%20%3D%20'${lake}'&outFields=NAME,ACRES&outSR=4326&f=json`)
 
-            .then((result) => {
-                console.log('inside .then acres GET', result.data.features[0].attributes)
-                const lakeInfo = {
-                    NAME: result.data.features[0].attributes.NAME,
-                    ACRES: result.data.features[0].attributes.ACRES
-                }
-                results.push(lakeInfo)
-                console.log('results Array', results)
+//             .then((result) => {
+//                 console.log('inside .then acres GET', result.data.features[0].attributes)
+//                 const lakeInfo = {
+//                     NAME: result.data.features[0].attributes.NAME,
+//                     ACRES: result.data.features[0].attributes.ACRES
+//                 }
+//                 results.push(lakeInfo)
+//                 console.log('results Array', results)
 
-                // if (results.length === lakesArray) {
-                    sqlText = `UPDATE "lakes_to_beach"
-                        SET "acres" = '$1'
-                        WHERE "lake_name" = '$2';`;
-                    console.log('did i get here?')
-                    pool.query(sqlText, [req.body.acres, req.body.lake_name])
-                        .then((result) => {
-                            console.log('result in .then', result)
-                            res.sendStatus(200);
-                        })
+//                 // if (results.length === lakesArray) {
+//                     sqlText = `UPDATE "lakes_to_beach"
+//                         SET "acres" = '$1'
+//                         WHERE "lake_name" = '$2';`;
+//                     console.log('did i get here?')
+//                     pool.query(sqlText, [req.body.acres, req.body.lake_name])
+//                         .then((result) => {
+//                             console.log('result in .then', result)
+//                             res.sendStatus(200);
+//                         })
                 
-            }).catch((err) => {
-                res.sendStatus(500)
-            })
-    }
-})
+//             }).catch((err) => {
+//                 res.sendStatus(500)
+//             })
+//     }
+// })
 
 
 
@@ -220,4 +220,4 @@ router.get('/', (req, res) => {
 //     })  
 //     })
 
-module.exports = router;
+// module.exports = router;
