@@ -66,12 +66,12 @@ function UserPage() {
           align="center"
           className="pickText"
         >
-          <h3>Pick Lakes to Watch:</h3>
+          <h3>Pick ALL the Lakes to Watch this Summer:</h3>
         </Typography>
         <Typography
         variant='body2'
         className="pickText">
-          After selecting your favorite lakes to watch, hit SUBMIT button
+          After selecting your favorite lakes, hit SUBMIT button
         </Typography>
       </center>
       </div>
