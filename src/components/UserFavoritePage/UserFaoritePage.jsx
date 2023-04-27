@@ -30,6 +30,10 @@ function UserFavoritePage() {
         history.push('/notes')
     }
 
+    function toUserPage(){
+        history.push('/user')
+    }
+
 
     return (<>
      
@@ -79,6 +83,7 @@ function UserFavoritePage() {
         }})}  </> :<></>}
         <Box
         m={1}
+        mt={6}
         display="flex"
         justifyContent="flex-end"
         alignItems="flex-end">
@@ -87,7 +92,7 @@ function UserFavoritePage() {
         size='small'
         onClick={toNotesPage}>Make a Note</Button>
         </Box>
-
+        
         <hr />
         <NotePage />
         

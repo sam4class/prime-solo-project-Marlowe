@@ -103,6 +103,7 @@ function LakesPage() {
 
             <Box
                 m={1}
+                mt={3}
                 display="flex"
                 justifyContent="flex-end"
                 alignItems="flex-end"
@@ -116,6 +117,7 @@ function LakesPage() {
 
             <Box
                 m={1}
+                mt={3}
                 display="flex"
                 justifyContent="flex-end"
                 alignItems="flex-end"
