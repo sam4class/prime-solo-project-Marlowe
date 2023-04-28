@@ -86,7 +86,8 @@ function UserFavoritePage() {
                                     history.push('/waterData')
                                 }}><i className='fas fa-ban'></i> {item.name}</li> 
                                 : <></>
-                    }<span><button 
+                    }
+                    {/* <span><button 
                         onClick={() => {
                         console.log('ID', item)
                         dispatch({
@@ -95,13 +96,13 @@ function UserFavoritePage() {
                             
                         })
                         history.push('/user');
-                    }}><i id= "trashBtn" className="fa fa-trash-o"></i></button> </span> 
+                    }}><i id= "trashBtn" className="fa fa-trash-o"></i></button> </span>  */}
                 </p>
             </>)
         }})}  </> :<></>}
         <Box
         m={1}
-        mt={6}
+        mt={5}
         display="flex"
         justifyContent="flex-end"
         alignItems="flex-end">
@@ -113,7 +114,7 @@ function UserFavoritePage() {
         
         <Box
                 m={1}
-                mt={5}
+                mt={4}
                 display="flex"
                 justifyContent="flex-end"
                 alignItems="flex-end"

@@ -108,11 +108,13 @@ function LakesPage() {
                 justifyContent="flex-end"
                 alignItems="flex-end"
             >
+                 
                 <Button
                     variant="contained"
                     align="right"
                     className="regBtn"
                     onClick={toRegister}>Register</Button>
+                    
             </Box>
 
             <Box
