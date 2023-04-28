@@ -18,7 +18,7 @@ function UserFavoritePage() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FAVORITES' })
-       
+        dispatch({ type: 'FETCH_FAV_LIST'})
         setIsLoading(false);
     }, []);
 
@@ -86,9 +86,7 @@ function UserFavoritePage() {
                                     history.push('/waterData')
                                 }}><i className='fas fa-ban'></i> {item.name}</li> 
                                 : <></>
-                    }<span><Button 
-                        variant="contained"
-                        size= "samll"
+                    }<span><button 
                         onClick={() => {
                         console.log('ID', item)
                         dispatch({
@@ -97,7 +95,7 @@ function UserFavoritePage() {
                             
                         })
                         history.push('/user');
-                    }}>DELETE</Button> </span> 
+                    }}><i id= "trashBtn" className="fa fa-trash-o"></i></button> </span> 
                 </p>
             </>)
         }})}  </> :<></>}
@@ -113,11 +111,18 @@ function UserFavoritePage() {
         onClick={toNotesPage}>Make a Note</Button>
         </Box>
         
+        <Box
+                m={1}
+                mt={5}
+                display="flex"
+                justifyContent="flex-end"
+                alignItems="flex-end"
+            >
         <Button
         variant="contained"
         size='small'
         onClick={onboardedOff}>Add a Another Lake</Button>
-
+            </Box>
         <hr />
         <NotePage />
         

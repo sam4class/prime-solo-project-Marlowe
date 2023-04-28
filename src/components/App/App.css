@@ -251,6 +251,11 @@ padding: 10px;
   color: rgb(214, 26, 57);
 }
 
+#trashBtn{
+border-radius: 50%;
+}
+
+
 /* 
 .welcomeHeader{
   padding-top: 40px;

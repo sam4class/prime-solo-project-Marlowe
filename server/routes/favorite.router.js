@@ -6,14 +6,34 @@ const {
 } = require("../modules/authentication-middleware");
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-   
-    sqlText = `SELECT * FROM "fav_lakes"
+
+    sqlText= `SELECT 
+distinct 
+	fav_lakes.user_id,
+	fav_lakes.lakes_id,
+	lakes.name, 
+	lakes.is_favorite,
+	"user".onboarded,
+	"user".access_level,
+	"user".username,
+	"user".password,
+	water_data.water_quality_status,
+	water_data.e_coli_reading,
+	water_data.temperature,
+	water_data.microcystin_reading
+ FROM "fav_lakes"
     JOIN "lakes" ON fav_lakes.lakes_id = lakes.id
     JOIN "user" on "user".id = fav_lakes.user_id
     JOIN "water_data" ON water_data.lake_id_wd = lakes.id
-    WHERE "onboarded" = true`
+    WHERE "onboarded" = true AND "user".id = $1;`
+   
+    // sqlText = `SELECT * FROM "fav_lakes"
+    // JOIN "lakes" ON fav_lakes.lakes_id = lakes.id
+    // JOIN "user" on "user".id = fav_lakes.user_id
+    // JOIN "water_data" ON water_data.lake_id_wd = lakes.id
+    // WHERE "onboarded" = true`
 
-    pool.query(sqlText)
+    pool.query(sqlText, [req.user.id])
     .then((result) => {
         // console.log('result.rows in GET fav', result.rows)
         res.send(result.rows)
