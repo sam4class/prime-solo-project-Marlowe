@@ -122,7 +122,7 @@ function UserFavoritePage() {
         <Button
         variant="contained"
         size='small'
-        onClick={onboardedOff}>Add a Another Lake</Button>
+        onClick={onboardedOff}>Add Another Lake</Button>
             </Box>
         <hr />
         <NotePage />

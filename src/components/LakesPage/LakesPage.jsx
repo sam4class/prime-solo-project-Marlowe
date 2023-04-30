@@ -100,6 +100,18 @@ function LakesPage() {
                     )
 
                 })}
+                       <center>
+                        
+            <Typography
+           
+                variant="subtitle3"
+                className="clickForDataText"
+            >
+                Register to watch your Favorite Lakes all summer!
+            </Typography>
+        </center>
+
+
 
             <Box
                 m={1}

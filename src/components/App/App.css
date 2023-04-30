@@ -244,8 +244,15 @@ padding: 10px;
 }
 
 .aboutList{
-  font-size: small;
+font-size: small;
+background-color: aliceblue;
+width: 90%;
+border-radius: 15px;
+box-shadow: 5px 5px 8px rgb(16, 80, 136);
+padding-top: 0px;
+padding: 10px;
 }
+
 
 #heartBtn{
   color: rgb(214, 26, 57);
@@ -255,7 +262,16 @@ padding: 10px;
 border-radius: 50%;
 }
 
-
+.aboutBox2{
+margin-top: 20px;
+font-size: medium;
+background-color: aliceblue;
+width: 90%;
+border-radius: 15px;
+box-shadow: 5px 5px 8px rgb(16, 80, 136);
+padding-top: 0px;
+padding: 10px;
+}
 /* 
 .welcomeHeader{
   padding-top: 40px;

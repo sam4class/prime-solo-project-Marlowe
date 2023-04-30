@@ -61,7 +61,6 @@ const linkToLogout = () => {
 
       {user.id &&
       <LogOutButton className="navLink"/>
-      // <BottomNavigationAction label="Logout" value="logout" icon={<Logout />} className="navLink" onClick={linkToLogout}/>
        }
        
     </BottomNavigation>

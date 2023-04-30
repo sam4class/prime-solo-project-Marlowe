@@ -19,8 +19,8 @@ function AboutPage() {
         <p>How to Use the App:
           <ul className="aboutList">
             <li>Blue means 'Swim!'</li>
-            <li>Green Alge means 'Getting a little dicey . . .'</li>
-            <li>Red/Brown means 'Nope, don't do it'</li>
+            <li>Green Algae means 'Start watching the data . . .'</li>
+            <li>Red/Brown means 'Beach Closed'</li>
             <br/>
             <li>Clicking on the Name of the lake gives you the current water data.</li>
             <br/>
@@ -29,10 +29,37 @@ function AboutPage() {
         </p>
         <p>Water data brought to by Minneapolis Park and Recreation Board.</p>
         <p>For more information about Minneapolis water testing details go to:<br/>
-         https://www.minneapolisparks.org<br/>
-         /park-care-improvements/water_resources/<br/>
-         lake_water_resources</p>
+         <a href='https://www.minneapolisparks.org/park-care-improvements/water_resources/lake_water_resources'>https://www.minneapolisparks.org/
+         park-care-improvements/water_resources
+         /lake_water_resources</a><br/>
+        </p>
 
+      </div>
+
+      <div className="aboutBox2">
+        <p>Project Made with:
+          <ul>
+            <li>React.js</li>
+            <li>Redux.js</li>
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>Postgres</li>
+            <li>Material UI</li>
+            <li>CSS</li>
+          </ul>
+        </p>
+        <a href="https://github.com/sam4class">https://github.com/sam4class</a>
+        <p>Thank you to:
+        <ul>
+        <li>Aquamarine Cohort!!</li>
+          <li>-you are all so wonderful</li>
+          <br/>
+        <li>Prime Instructors:</li> 
+          <li>Emma, Key & Kris</li>
+          <br/>
+        <li>My Family and Frineds <i className='fa fa-heart'></i></li>
+        </ul>
+        </p>
       </div>
     </div>
   );
