@@ -39,12 +39,6 @@ CREATE TABLE "notes" (
   "date" varchar (255)
 ); 
 
-CREATE TABLE "lakes_to_beach" (
-	"id" serial primary key,
-	"lake_name" varchar (200),
-	"lake_beach_name" varchar (200),
-	"acres" varchar (200)
-	);
 
 
 --this currently needs to be hardcoded into database because the water is not currently being tested to be available
@@ -60,7 +54,7 @@ VALUES
 	('Lake Nokomis - 50th Street Beach'),
 	('Lake Nokomis - Main Beach'),
 	('Lake Harriet - North'),
-	('Lake Harrirt - South'),
+	('Lake Harriet - South'),
 	('Cedar Lake - East Beach'),
 	('Cedar Lake - Point Beach'),
 	('Cedar Lake - South Beach');
@@ -81,18 +75,4 @@ VALUES
 	('GOOD', '1', '66', '3', '11'),
 	('GOOD', '1', '68', '4', '12');
 
-INSERT INTO "lakes_to_beach" 
-	("lake_name", "lake_beach_name") 
-VALUES 
-	('Theodore Wirth Park', 'Theodore Wirth Park Beach'),
-	('Bde Maka Ska', 'Bde Maka Ska - 32nd Street Beach'),
-	('Bde Maka Ska', 'Bde Maka Ska - Thomas Beach'),
-	('Bde Maka Ska', 'Bde Maka Ska - North Beach'),
-	('Lake Hiawatha', 'Lake Hiawatha Beach'),
-	('Lake Nokomis', 'Lake Nokomis - 50th Street Beach'),
-	('Lake Nokomis', 'Lake Nokomis - Main Beach'),
-	('Lake Harriet', 'Lake Harriet - North'),
-	('Lake Harriet', 'Lake Harrirt - South'),
-	('Cedar Lake', 'Cedar Lake - East Beach'),
-	('Cedar Lake', 'Cedar Lake - Point Beach'),
-	('Cedar Lake', 'Cedar Lake - South Beach');
+

@@ -25,7 +25,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //POST to notes
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('req.body in POST', req.body)
+    // console.log('req.body in POST', req.body)
 
     const sqlText = `INSERT INTO "notes" ("user_id", "lake_id_fk", "date", "note")
                     VALUES ($1, $2, $3, $4)`;

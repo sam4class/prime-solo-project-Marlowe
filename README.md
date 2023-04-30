@@ -1,35 +1,55 @@
 
-# Prime Solo Project Starting Repo
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# Lakeside App
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+As our summer heats up, our lakes do too, and you must watch the water data throughout the summer to know which lakes are still available for swimming without getting you sick. This app was created to be a quick and easy way to inform you about the top Minneapolis swimming beaches and let you know which ones are healthy enough to swim in. 
 
-## Use the Template for This Repository (Don't Clone)
+## Lakeside Features
+<ul>
+  <li>A list of the top Minneapolis Beaches, labeled with both color and icons to show their status</li>
+  <li>Clicking on the name of a lake gives you the water data for that lake</li>
+  <li>An about page that tells about the app and gives you the link to Minneapolis Park and Recreation Board to get more information on how they collect the water data</li>
+  <li>Sign-In and ability to customize your lake list to the lakes of your choosing</li>
+  <li>While Signed-In, you can also make notes on the lakes throughout the season</li>
+  <li>You can add more lakes to your list of lakes at any time</li>
+</ul>
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+## Screen Shots of Lakeside
+<br/>
+<img width="400" src="public/images/lakeside1.png"><br/>
+<img width="400" src="public/images/lakeside5.png"><br/>
+<img width="400" src="public/images/lakeside2.png"><br/>
+<img width="400" src="public/images/lakeside3.png"><br/>
+<img width="400" src="public/images/lakeside4.png"><br/>
+<br/>
 
 
+## Built With
+<ul>
+  <li>React</li>
+  <li>Redux</li>
+  <li>Express</li>
+  <li>Passport</li>
+  <li>PostgreSQL</li>
+  <li>Material UI</li>
+</ul>
+  
 ## Prerequisites
 
 Before you get started, make sure you have the following software installed on your computer:
 
 - [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Create database and table
-
-Create a new database called `prime_app` and create a `user` table:
-
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+## Installation
+<ol>
+    <li>Create a database named: "lakes_app_data"</li>
+    <li>The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries</li>
+    <li>Open up your editor of choice and run npm install</li>
+    <li>Run npm run server in your terminal</li>
+    <li>Run npm run client in your terminal</li>
+    <li>The npm run client command will open up a new browser tab for you!</li>
+</ol>
 
 ## Development Setup Instructions
 
@@ -38,36 +58,17 @@ If you would like to name your database something else, you will need to change 
   ```
   SERVER_SESSION_SECRET=superDuperSecret
   ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, or if you create a secret with less than eight characters, or if you leave it as `superDuperSecret`, you will get a warning.
 - Start postgres if not running already by using `brew services start postgresql`
 - Run `npm run server`
 - Run `npm run client`
 - Navigate to `localhost:3000`
 
-## Debugging
-
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
-
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
-
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
-
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
-
-## Testing Routes with Postman
-
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
-
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
-
-1. Start the server - `npm run server`
-2. Import the sample routes JSON file [v2](./PostmanPrimeSoloRoutesv2.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
-
-After running the login route above, you can try any other route you've created that requires a logged in user!
+## Acknowledgments
+<ul>
+  <li>Aquamarine Cohort at Prime Digital Academy</li>
+  <li>Prime Instructors: Emma, Key & Kris</li>
+</ul>
 
 ## Production Build
 
@@ -76,35 +77,6 @@ Before pushing to Heroku, run `npm run build` in terminal. This will create a bu
 - Start postgres if not running already by using `brew services start postgresql`
 - Run `npm start`
 - Navigate to `localhost:5000`
-
-## Lay of the Land
-
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
-
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
-
-Directory Structure:
-
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
 
 ## Deployment
 

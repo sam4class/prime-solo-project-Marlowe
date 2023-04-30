@@ -6,10 +6,10 @@ function AboutPage() {
     <div className="container">
       <div className="aboutBox">
 
-        <p>As Minneasotans, we know how to make the most of every season, and this app helps you enjoy our
+        <p>As Minnesotans, we know how to make the most of every season, and this app helps you enjoy our
           beautiful Minneapolis lakes without any worry!<br />
           <br />
-          Weather you are a local or a visitor, this app will provide you
+          Whether you are a local or a visitor, this app will provide you
           with up-to-date information on the status of our most popular lake beaches.<br />
           <br />
           Happy Swimming!</p>
@@ -22,10 +22,10 @@ function AboutPage() {
           <br />
           <li>Click on the Name of the lake to see the current water data.</li>
           <br />
-          <li>Signing-in will let you select the lakes you most care about, weather that be because they are closest to you or the ones you love to visit!</li>
+          <li>Signing-in will let you select the lakes you most care about, whether that be because they are closest to you or the ones you love to visit!</li>
         </ul>
 
-        <p>Water data brought to by Minneapolis Park and Recreation Board.<br />
+        <p>Water data provided by Minneapolis Park and Recreation Board.<br />
           <br />For more information about Minneapolis Water Testing Details go to:<br />
           <a href='https://www.minneapolisparks.org/park-care-improvements/water_resources/lake_water_resources'>https://www.minneapolisparks.org/
             park-care-improvements/water_resources
