@@ -10,14 +10,8 @@ import noteSaga from './note.saga';
 import deleteNote from './delete.saga';
 import fetchFavLakes from './getFavLakes.saga';
 import putOnboarded from './putOnboarded.saga';
-import fetchAcres from './acres.saga';
 import putOffboarded from './putOffOnboarded.saga';
 import deleteFavLake from './deleteFavLake.saga';
-
-
-// rootSaga is the primary saga.
-// It bundles up all of the other sagas so our project can use them.
-// This is imported in index.js as rootSaga
 
 // some sagas trigger other sagas, as an example
 // the registration triggers a login
@@ -35,7 +29,6 @@ export default function* rootSaga() {
     deleteNote(),
     fetchFavLakes(),
     putOnboarded(),
-    fetchAcres(),
     putOffboarded(),
     deleteFavLake(),
     ]);

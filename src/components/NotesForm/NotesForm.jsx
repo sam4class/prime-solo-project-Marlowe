@@ -6,16 +6,18 @@ import TextField from '@mui/material/TextField';
 
 
 function NotesForm() {
-    // console.log('inside NotesForm() page')
+
     const history = useHistory();
     const dispatch = useDispatch();
 
+    //new Date() inside useState give the date of today in the date field below
     const [addDate, setAddDate] = useState(new Date().toLocaleDateString());
     const [addNote, setAddNote] = useState('');
     const [addLake, setAddLake] = useState('');
-    const lakeList = useSelector((store) => store.lakeList);
-    // console.log('the lakeList', lakeList);
 
+    const lakeList = useSelector((store) => store.lakeList);
+
+    //this useEffect makes sure the lakes are ready to be mapped through in the dropdown menu 
     useEffect(() => {
         dispatch({
             type: 'FETCH_LAKES'
@@ -34,7 +36,7 @@ function NotesForm() {
                 date: addDate,
             }
         })
-        console.log('addLake in noteForm', Number(addLake))
+        // console.log('addLake in noteForm', Number(addLake))
         setAddDate('');
         setAddNote('');
         setAddLake('');
@@ -57,37 +59,16 @@ function NotesForm() {
             noValidate
             onSubmit={addNewNote}>
             <FormControl fullWidth variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
-            <InputLabel id="menu" >Lake</InputLabel>
-            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)} className="noteBackground">
-                {/* <option label='Which Lake Are You At?' value="empty"></option> */}
-                {lakeList.map((item) => {
-                    return (
-                        <MenuItem key={item.id} value={item.id}> {item.name} </MenuItem>
-                    )
-                })}
-            </Select>
+                <InputLabel id="menu" >Lake</InputLabel>
+                <Select label="Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)} className="noteBackground">
+                    {lakeList.map((item) => {
+                        return (
+                            <MenuItem key={item.id} value={item.id}> {item.name} </MenuItem>
+                        )
+                    })}
+                </Select>
             </FormControl>
-            {/* <FormControl fullWidth variant="outlined" style={{ marginTop: 20, marginLeft: 0 }}>
-            <InputLabel id="menu" >Lake</InputLabel>
-            <Select label= "Lake" value={addLake} onChange={(event) => setAddLake(event.target.value)}> */}
-                {/* <option label='Which Lake Are You At?' value="empty"></option> */}
-                        {/* <MenuItem value={lakeList.id}>Bde Maka Ska- 32nd Street Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Bde Maka Ska- North Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Bde Maka Ska- Thomas Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Cedar Lake- East Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Cedar Lake- Point Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Cedar Lake- South Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Lake Harriet- North</MenuItem>
-                        <MenuItem value={lakeList.id}>Lake Harriet- South</MenuItem>
-                        <MenuItem value={lakeList.id}>Lake Hiawatha Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Lake Nokomis- 50th Street Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Lake Nokomis- Main Beach</MenuItem>
-                        <MenuItem value={lakeList.id}>Theodore Wirth Beach</MenuItem>
-         
-            </Select>
-            </FormControl> */}
-
-            <br/>
+            <br />
             <TextField
                 label="Date"
                 placeholder="1-01-2023"
@@ -98,7 +79,7 @@ function NotesForm() {
                 value={addDate}
                 onChange={(event) => setAddDate(event.target.value)}
             />
-     
+
             {/* <input type='text' placeholder='Date 01-01-2023' value={addDate} onChange={(event) => setAddDate(event.target.value)}/> */}
             <TextField
                 label="Note"

@@ -16,15 +16,12 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import LakesPage from '../LakesPage/LakesPage';
 import WaterDataPage from '../WaterDataPage/WaterDataPage';
 import NotesForm from '../NotesForm/NotesForm';
 import UserFavoritePage from '../UserFavoritePage/UserFaoritePage';
-// import NotePage from './NotePage/NotePage';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -90,26 +87,10 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
             path="/notes"
           >
             <NotesForm />
           </ProtectedRoute>
-{/* 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/notesPage"
-          >
-            <NotePage />
-          </ProtectedRoute> */}
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -154,22 +135,7 @@ function App() {
               <RegisterPage />
             }
           </Route>
-
-          <Route
-            exact
-            path="/lakes"  //was /home
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the Landing page
-              <LandingPage />
-            }
-          </Route>
          
-
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>

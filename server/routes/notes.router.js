@@ -2,9 +2,10 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 const {
-  rejectUnauthenticated,
+    rejectUnauthenticated,
 } = require("../modules/authentication-middleware");
 
+//GET for notes
 router.get('/', rejectUnauthenticated, (req, res) => {
     const sqlText = `SELECT notes.id, notes.lake_id_fk, notes.user_id, notes.note, notes.date, lakes."name"  
     FROM notes
@@ -13,15 +14,16 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     ORDER BY date DESC;`;
 
     pool.query(sqlText)
-    .then((result) => {
-        res.send(result.rows)
-        // console.log('result.rows in GET notes route', result.rows)
-    }).catch((err) => {
-        console.log('in GET notes router', err)
-        res.sendStatus(500);
-    })
+        .then((result) => {
+            res.send(result.rows)
+            // console.log('result.rows in GET notes route', result.rows)
+        }).catch((err) => {
+            console.log('in GET notes router', err)
+            res.sendStatus(500);
+        })
 })
 
+//POST to notes
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('req.body in POST', req.body)
 
@@ -30,26 +32,27 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     const sqlReq = [req.user.id, req.body.lake_id_fk, req.body.date, req.body.notes]
 
     pool.query(sqlText, sqlReq)
-    .then((result) => {
-        res.sendStatus(201);
-    }).catch((err) => {
-        console.log('error inside POST route', err)
-        res.sendStatus(500);
-    })
+        .then((result) => {
+            res.sendStatus(201);
+        }).catch((err) => {
+            console.log('error inside POST route', err)
+            res.sendStatus(500);
+        })
 })
 
+//DELETE by id, note for note page
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // console.log('inside DELETE', req.params)
-    let sqlText =`DELETE FROM "notes" WHERE notes.id= $1`;
+    let sqlText = `DELETE FROM "notes" WHERE notes.id= $1`;
     let sqlReq = [req.params.id];
 
     pool.query(sqlText, sqlReq)
-    .then(() => {
-        res.sendStatus(200);
-    }).catch((err) => {
-        console.log('eror in DELETE router', err)
-        res.sendStatus(500);
-    })
+        .then(() => {
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log('eror in DELETE router', err)
+            res.sendStatus(500);
+        })
 })
 
 module.exports = router;

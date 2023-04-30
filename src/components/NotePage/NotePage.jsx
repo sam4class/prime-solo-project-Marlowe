@@ -11,17 +11,21 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 function NotePage() {
 
-    const [deleteId, setDeleteId] = useState('');
-    const [open, setOpen] = useState(false);
-    const userNotes = useSelector((store) => store.userNotes);
-    const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
     const history = useHistory();
+
+    //these states are used for the DELETE conformation pop-up
+    const [deleteId, setDeleteId] = useState('');
+    const [open, setOpen] = useState(false);
+
+    const userNotes = useSelector((store) => store.userNotes);
+    const user = useSelector((store) => store.user);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_NOTES' })
     }, []);
 
+    //these two functions are for the DELETE conformation pop-up
     const handleClickOpen = (id) => {
         setDeleteId(id)
         setOpen(true);
@@ -42,70 +46,60 @@ function NotePage() {
 
             {userNotes ?
                 userNotes.map((item) => {
-                    if(item.user_id === user.id){
-                    return (<>
-                        <ul className="noteBox" key={item.id}>
+                    if (item.user_id === user.id) {
+                        return (<>
+                            <ul className="noteBox" key={item.id}>
+                                <li key={item.id}>Lake: {item.name}</li>
+                                <br />
+                                <li>Date: {item.date}</li>
+                                <br />
+                                <li>Note: {item.note}</li>
+                            </ul>
 
-                            <p>Lake: {item.name}</p>
-                            <p>Date: {item.date}</p>
-                            <p>Note: {item.note}</p>
+                            <Box
+                                m={1}
+                                display="flex"
+                                justifyContent="flex-end"
+                                alignItems="flex-end">
 
-                        </ul>
-
-                        <Box
-                            m={1}
-                            display="flex"
-                            justifyContent="flex-end"
-                            alignItems="flex-end">
-                            {/* <Button
-                                variant="contained"
-                                size="small"
-                                id={item.id}
-                                onClick={() => {
-                                    dispatch({
-                                        type: 'DELETE_NOTE',
-                                        payload: item.id
-                                    })
-                                }}>Delete Note</Button> */}
-
-                            <Button
-                                variant="contained"
-                                //
-                                onClick={() => {handleClickOpen(item.id)}}>
-                                Delete
-                            </Button>
-                            <Dialog
-                                open={open}
-                                onClose={handleClose}
-                                aria-labelledby="alert-dialog-title"
-                                aria-describedby="alert-dialog-description"
-                            >
-                                <DialogTitle id="alert-dialog-title">
-                                    {"Deleting Note"}
-                                </DialogTitle>
-                                <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                        Once this note is deleted, it will be gone.  Would you like to delete your note?
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={handleClose}>Disagree</Button>
-                                    <Button onClick={() => {
-                                        console.log('ID', deleteId)
-                                        dispatch({
-                                            type: 'DELETE_NOTE',
-                                            payload: deleteId
-                                        })
-                                        history.push('/user');
-                                    }} 
-                                    autoFocus>
-                                        Agree
-                                    </Button>
-                                </DialogActions>
-                            </Dialog>
-                        </Box>
-                    </>)
-                }}) : <p></p>}
+                                <Button
+                                    variant="contained"
+                                    onClick={() => { handleClickOpen(item.id) }}>
+                                    Delete
+                                </Button>
+                                <Dialog
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                >
+                                    <DialogTitle id="alert-dialog-title">
+                                        {"Deleting Note"}
+                                    </DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText id="alert-dialog-description">
+                                            Once this note is deleted, it will be gone.  Would you like to delete your note?
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={handleClose}>Disagree</Button>
+                                        <Button onClick={() => {
+                                            console.log('ID', deleteId)
+                                            dispatch({
+                                                type: 'DELETE_NOTE',
+                                                payload: deleteId
+                                            })
+                                            history.push('/user');
+                                        }}
+                                            autoFocus>
+                                            Agree
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </Box>
+                        </>)
+                    }
+                }) : <p></p>}
 
         </div>
     )

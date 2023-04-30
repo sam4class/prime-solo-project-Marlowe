@@ -7,43 +7,37 @@ import { Button, Box, Typography } from "@mui/material";
 
 
 function UserFavoritePage() {
-    // console.log('inside UserFavPage()')
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const [isLoading, setIsLoading] = useState(true);
     const favLakeList = useSelector((store) => store.favLakeList);
     const user = useSelector((store) => store.user);
-    const [isLoading, setIsLoading] = useState(true);
     
-
     useEffect(() => {
         dispatch({ type: 'FETCH_FAVORITES' })
-        dispatch({ type: 'FETCH_FAV_LIST'})
+        dispatch({ type: 'FETCH_FAV'})
+        // dispatch({ type: 'FETCH_LAKES' })
         setIsLoading(false);
     }, []);
 
     if(isLoading){
         return <p>Grabbing Favortie Lakes . . .</p>
       }
-    
+
     function toNotesPage() {
         history.push('/notes')
     }
 
-    function toUserPage(){
-        history.push('/user')
-    }
-
-    function onboardedOff(){
+    function onboardedOff() {
         dispatch({
             type: "SET_ONBOARD_OFF",
             payload: user.id
         })
     }
 
-
     return (<>
-     
+
         <Typography
             m={3}
             variant="h5"
@@ -51,83 +45,73 @@ function UserFavoritePage() {
             Your Lakes:
         </Typography>
 
-        {favLakeList.length ? 
+        {favLakeList.length ?
             <>
-        {favLakeList.map((item) => {
-            console.log('this is item', item)
-            if(item.user_id === user.id){
-            return (<>
-                <p key={item.id}>
-                   {item.water_quality_status === 'GOOD' ?
-                        <li id='blueGood' className='listBox' onClick={() => {
-                            console.log('clicking')
-                            dispatch({
-                                type: 'WATER_DATA',
-                                payload: item.id
-                            });
-                            history.push('/waterData')
-                        }}> <i className="fa-solid fa-person-swimming"></i> {item.name}</li> :
-                        item.water_quality_status === 'FAIR' ?
-                            <li id='greenFair' className='listBox' onClick={() => {
-                                console.log('clicking')
-                                dispatch({
-                                    type: 'WATER_DATA',
-                                    payload: item.id
-                                });
-                                history.push('/waterData')
-                            }}><i className='fas fa-exclamation-triangle'></i> {item.name}</li> :
-                            item.water_quality_status === 'BAD' ?
-                                <li id='redBad' className='listBox' onClick={() => {
-                                    console.log('clicking')
-                                    dispatch({
-                                        type: 'WATER_DATA',
-                                        payload: item.id
-                                    });
-                                    history.push('/waterData')
-                                }}><i className='fas fa-ban'></i> {item.name}</li> 
-                                : <></>
+                {favLakeList.map((item) => {
+                    // console.log('this is item', item)
+                    if (item.user_id === user.id) {
+                        return (<>
+                            <p key={item.id}>
+                                {item.water_quality_status === 'GOOD' ?
+                                    <li key={item.id} id='blueGood' className='listBox' onClick={() => {
+                                        // console.log('clicking', item.lakes_id)
+                                        dispatch({
+                                            type: 'WATER_DATA',
+                                            payload: item.lakes_id
+                                        });
+                                        history.push('/waterData')
+                                    }}>
+                                        <i className="fa-solid fa-person-swimming"></i> {item.name}</li> :
+                                    item.water_quality_status === 'FAIR' ?
+                                        <li key={item.id} id='greenFair' className='listBox' onClick={() => {
+                                            // console.log('clicking', item.lakes_id)
+                                            dispatch({
+                                                type: 'WATER_DATA',
+                                                payload: item.lakes_id
+                                            });
+                                            history.push('/waterData')
+                                        }}>
+                                            <i className='fas fa-exclamation-triangle'></i> {item.name}</li> :
+                                        item.water_quality_status === 'BAD' ?
+                                            <li key={item.id} id='redBad' className='listBox' onClick={() => {
+                                                // console.log('clicking', item.lakes_id)
+                                                dispatch({
+                                                    type: 'WATER_DATA',
+                                                    payload: item.lakes_id
+                                                });
+                                                history.push('/waterData')
+                                            }}>
+                                                <i className='fas fa-ban'></i> {item.name}</li>
+                                            : <></>}</p>
+                        </>)
                     }
-                    {/* <span><button 
-                        onClick={() => {
-                        console.log('ID', item)
-                        dispatch({
-                            type: 'DELETE_FAV',
-                            payload: item.id
-                            
-                        })
-                        history.push('/user');
-                    }}><i id= "trashBtn" className="fa fa-trash-o"></i></button> </span>  */}
-                </p>
-            </>)
-        }})}  </> :<></>}
+                })}  </> : <></>}
         <Box
-        m={1}
-        mt={5}
-        display="flex"
-        justifyContent="flex-end"
-        alignItems="flex-end">
-        <Button
-        variant="contained"
-        size='small'
-        onClick={toNotesPage}>Make a Note</Button>
+            m={1}
+            mt={5}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end">
+            <Button
+                variant="contained"
+                size='small'
+                onClick={toNotesPage}>Make a Note</Button>
         </Box>
-        
+
         <Box
-                m={1}
-                mt={4}
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-end"
-            >
-        <Button
-        variant="contained"
-        size='small'
-        onClick={onboardedOff}>Add Another Lake</Button>
-            </Box>
+            m={1}
+            mt={4}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end">
+            <Button
+                variant="contained"
+                size='small'
+                onClick={onboardedOff}>Add Another Lake</Button>
+        </Box>
         <hr />
         <NotePage />
-        
-    </> 
+    </>
     )
 }
 export default UserFavoritePage;
