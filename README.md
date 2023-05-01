@@ -39,20 +39,28 @@ Before you get started, make sure you have the following software installed on y
 
 - [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
+- [PostgresApp](https://postgresapp.com/)
 - [Nodemon](https://nodemon.io/)
 
 ## Installation
 <ol>
-    <li>Create a database named: "lakes_app_data"</li>
+    <li>Use Postgres App to create a local Postgres instance</li>
+    <li>Then use Postico to connect to your local Postgres</li>
+    <li>Create a database named in Postico: "lakes_app_data"</li>
     <li>The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries</li>
     <li>Open up your editor of choice and run npm install</li>
     <li>Run npm run server in your terminal</li>
-    <li>Run npm run client in your terminal</li>
+    <li>In another terminal: Run npm run client</li>
     <li>The npm run client command will open up a new browser tab for you!</li>
 </ol>
+- Start postgres if not running already by using `brew services start postgresql`
+- Run `npm start`
+- Navigate to `localhost:5000`
 
 ## Development Setup Instructions
 
+- `git clone git@github.com:sam4class/prime-solo-project-Marlowe.git`
+- `cd prime-solo-project-Marlowe`
 - Run `npm install`
 - Create a `.env` file at the root of the project and paste this line into the file:
   ```

@@ -13,7 +13,6 @@ distinct
 	fav_lakes.user_id,
 	fav_lakes.lakes_id,
 	lakes.name, 
-	lakes.is_favorite,
 	"user".onboarded,
 	"user".access_level,
 	"user".username,
