@@ -9,6 +9,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import FolderIcon from '@mui/icons-material/Folder';
 import Login from '@mui/icons-material/Login';
+import { Box } from '@mui/material';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
@@ -36,9 +37,9 @@ function Nav() {
 
   return (
 
-    <div className="nav">
+    <Box sx={{ width: 400, position: 'fixed', bottom: 0 }}>
 
-      <BottomNavigation sx={{ width: 400 }} value={value} onChange={(event, newValue) => { setValue(newValue) }}>
+      <BottomNavigation value={value} onChange={(event, newValue) => { setValue(newValue) }}>
 
         {!user.id &&
           <BottomNavigationAction label="Login" value="login" icon={<Login />} onClick={linkToLogIn} className="navLink" />
@@ -56,7 +57,7 @@ function Nav() {
           <LogOutButton className="navLink" />
         }
       </BottomNavigation>
-    </div>
+    </Box>
   );
 }
 

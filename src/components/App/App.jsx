@@ -22,6 +22,7 @@ import LakesPage from '../LakesPage/LakesPage';
 import WaterDataPage from '../WaterDataPage/WaterDataPage';
 import NotesForm from '../NotesForm/NotesForm';
 import UserFavoritePage from '../UserFavoritePage/UserFaoritePage';
+import { Box } from '@mui/material';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -40,9 +41,10 @@ function App() {
   }, [dispatch]);
 
   return (
+
     <Router>
-      <div>
-     
+      <Box sx={{ pb: 9}}>
+
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/lakes" /> 
@@ -143,7 +145,7 @@ function App() {
         </Switch>
         <Nav />
         <Footer />
-      </div>
+      </Box>
     </Router>
   );
 }
