@@ -37,7 +37,7 @@ function Nav() {
 
   return (
 
-    <Box sx={{ width: 400, position: 'fixed', bottom: 0 }}>
+    <Box sx={{ position: 'fixed', bottom: 0, left: 0, right: 0}}>
 
       <BottomNavigation value={value} onChange={(event, newValue) => { setValue(newValue) }}>
 
