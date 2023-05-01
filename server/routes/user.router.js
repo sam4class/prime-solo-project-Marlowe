@@ -49,7 +49,7 @@ router.post('/logout', (req, res) => {
 
 //PUT for onboarded true
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-  console.log('inside PUT route', req.params.id)
+  // console.log('inside PUT route', req.params.id)
   const sqlText =`UPDATE "user"
   SET "onboarded" = true
   WHERE "id" = ${req.params.id}`;
@@ -64,7 +64,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 
 //PUT to onboarded false to add more lakes
 router.put('/more/:id', rejectUnauthenticated, (req, res) => {
-  console.log('inside PUT route', req.params.id)
+  // console.log('inside PUT route', req.params.id)
   const sqlText =`UPDATE "user"
   SET "onboarded" = false
   WHERE "id" = ${req.params.id}`;
