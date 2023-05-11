@@ -47,16 +47,6 @@ function AboutPage() {
         </ul>
 
         <a href="https://github.com/sam4class">https://github.com/sam4class</a>
-        <h4>Thank you to:</h4>
-        <ul>
-          <li>Aquamarine Cohort!!</li>
-          <li>-you are all so wonderful</li>
-          <br />
-          <li>Prime Instructors:</li>
-          <li>-Emma, Key & Kris</li>
-          <br />
-          <li>Family and Friends <i className='fa fa-heart'></i></li>
-        </ul>
 
       </div>
     </div>
