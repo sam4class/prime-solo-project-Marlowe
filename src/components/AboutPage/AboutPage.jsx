@@ -12,7 +12,7 @@ function AboutPage() {
           Whether you are a local or a visitor, this app will provide you
           with up-to-date information on the status of our most popular lake beaches.<br />
           <br />
-          Happy Swimming!</p>
+          Happy Swimming!!</p>
 
         <h4>How to Use the App:</h4>
         <ul className="aboutList">
